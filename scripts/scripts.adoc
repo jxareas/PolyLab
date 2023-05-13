@@ -1,0 +1,3 @@
+= PolyLab Scripts
+
+The current directory contains all utility scripts which are necessary to run the project.
