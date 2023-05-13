@@ -1,0 +1,9 @@
+= Internal Projects
+
+This contains the internal libraries of *PolyLab*, which are composed of the regular structure of an Angular library, including the following:
+
+- A src directory, containing the source code for the library.
+- A `public_api.ts` file, which defines the public API of the library.
+- A `tsconfig.lib.json` file, which provides a separate TypeScript configuration for building the library.
+- A `package.json` file, which contains metadata about the library and its dependencies.
+- A `README.md` file, which provides basic documentation for the library.
