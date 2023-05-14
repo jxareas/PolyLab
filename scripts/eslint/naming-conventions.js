@@ -11,30 +11,30 @@ module.exports = {
             selector: 'typeLike',
             format: ['PascalCase', 'UPPER_CASE'],
           },
-          {
+          /*{
             selector: 'class',
             modifiers: ['exported'],
             format: ['PascalCase'],
-            prefix: ['Tui'],
+            prefix: ['Jx'],
           },
           {
             selector: 'class',
             modifiers: ['exported', 'abstract'],
             format: ['PascalCase'],
-            prefix: ['AbstractTui'],
+            prefix: ['AbstractJx'],
           },
           {
             selector: 'function',
             modifiers: ['exported'],
-            format: ['PascalCase'], // @note: tui{PascalCase}FnName
-            prefix: ['tui'],
+            format: ['PascalCase'], // @note: jx{PascalCase}FnName
+            prefix: ['jx'],
           },
           {
             selector: 'interface',
             modifiers: ['exported'],
             format: ['PascalCase'],
-            prefix: ['Tui'],
-          },
+            prefix: ['Jx'],
+          },*/
           {
             selector: 'variable',
             modifiers: ['destructured'],
@@ -54,18 +54,18 @@ module.exports = {
             modifiers: ['exported'],
             format: ['UPPER_CASE', 'camelCase', 'PascalCase'],
           },
-          {
+          /*  {
             selector: 'class',
             modifiers: ['abstract'],
             format: ['PascalCase'],
-            prefix: ['AbstractTui'],
+            prefix: ['AbstractJx'],
           },
           {
             selector: 'enum',
             modifiers: ['exported'],
             format: ['StrictPascalCase'],
-            prefix: ['Tui'],
-          },
+            prefix: ['Jx'],
+          },*/
           {
             selector: 'enumMember',
             format: ['PascalCase'],
@@ -131,12 +131,12 @@ module.exports = {
             modifiers: ['exported'],
             format: ['UPPER_CASE', 'camelCase', 'PascalCase'],
           },
-          {
+          /*{
             selector: 'class',
             modifiers: ['abstract'],
             format: ['PascalCase'],
-            prefix: ['Abstract', 'TuiAbstract', 'Example'],
-          },
+            prefix: ['Abstract', 'JxAbstract', 'Example'],
+          },*/
           {
             selector: 'enum',
             modifiers: ['exported'],

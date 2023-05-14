@@ -1,6 +1,6 @@
-# Building CineMates
+# Building PolyLab
 
-This document describes how to set up your development environment to build `CineMates`.
+This document describes how to set up your development environment to build `PolyLab`.
 It also explains the basic mechanics of using `git`, `node` and `yarn`.
 
 - [Prerequisite Software](#prerequisite-software)
@@ -11,11 +11,11 @@ It also explains the basic mechanics of using `git`, `node` and `yarn`.
 - [Code Formatting](#code-formatting)
 - [Commit Messages](#commit-messages)
 
-See the [contribution guidelines](./CONTRIBUTING.md) if you'd like to contribute to `CineMates`.
+See the [contribution guidelines](./CONTRIBUTING.md) if you'd like to contribute to `PolyLab`.
 
 ## Prerequisite Software
 
-Before you can build `CineMates`, you must install and configure the
+Before you can build `PolyLab`, you must install and configure the
 following products on your development machine:
 
 - [Git](http://git-scm.com) and/or the **GitHub app** (for [Mac](http://mac.github.com) or
@@ -33,8 +33,8 @@ Fork and clone the ng-bootstrap repository:
 
 1. Login to your GitHub account or create one by following the instructions given
    [here](https://github.com/signup/free).
-2. [Fork](http://help.github.com/forking) the [main CineMates
-   repository](https://github.com/jxareas/CineMates).
+2. [Fork](http://help.github.com/forking) the [main PolyLab
+   repository](https://github.com/jxareas/PolyLab).
 3. Clone your fork of the ng-bootstrap's ng-bootstrap repository and define an `upstream` remote pointing back to
    the ng-bootstrap's ng-bootstrap repository that you forked in the first place.
 
@@ -44,7 +44,7 @@ git clone git@github.com:<github username>/ng-bootstrap.git ng-bootstrap
 
 
 # Add the main ng-bootstrap repository as an upstream remote to your repository:
-git remote add upstream https://github.com/jxareas/CineMates.git
+git remote add upstream https://github.com/jxareas/PolyLab.git
 ```
 
 ## Installing Dependencies

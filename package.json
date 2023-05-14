@@ -61,7 +61,9 @@
     "@types/jasmine": "~4.3.0",
     "@typescript-eslint/eslint-plugin": "5.59.2",
     "@typescript-eslint/parser": "5.59.2",
+    "cypress": "latest",
     "eslint": "^8.39.0",
+    "eslint-plugin-unicorn": "^47.0.0",
     "husky": "^8.0.3",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
@@ -69,9 +71,9 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "prettier": "^2.8.8",
+    "lint-staged": "^13.2.2",
     "ng-packagr": "^16.0.0",
-    "typescript": "~5.0.2",
-    "cypress": "latest"
+    "prettier": "^2.8.8",
+    "typescript": "~5.0.2"
   }
 }

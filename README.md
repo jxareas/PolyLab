@@ -1,9 +1,10 @@
 <a name="readme-top"></a>
 <br />
+
 <div align="center">
   <a href="#">
    <!-- Replace this logo for a custom official logo -->
-    <img src="./readme-assets/logos/official_logo.jpeg" alt="Logo" width="80" height="80">
+    <img src="./readme-assets/logos/official_logo.jpg" alt="Logo" width="180" height="150">
   </a>
 
 <h1 align = "center">
@@ -11,7 +12,7 @@
 </h1>
     <!-- Add/Remove categories depending on your project -->
   <p align="center">
-    A microservice-based LIMS with Spring & Eureka
+    A sample Angular micro front-end for a LIMS
     <br />
     <!-- IMPORTANT NOTE: If you want to append emojis you'll need to add the '-' sign before and after the header, as shown below:  -->
     <a href="#-screenshots-">Screenshots</a>
@@ -27,114 +28,74 @@
 </div>
 
 <!-- Here goes the project description -->
-**Read-My-README** is a simple tidy README template loosely based on the [*Best-README-Template*](https://github.com/othneildrew/Best-README-Template).
 
-It is originally tailored to be used in Mobile Projects, but it can be easily customized to fit other different use cases.
-
-Still Feeling Uninspired? Here are some samples that use this README-Style with certain customizations:
-* [*Xpensor*: A Local Android Expense Tracker](https://github.com/jxareas/xpensor)
-* [*LaunchPad*: An App about Space Events](https://github.com/Tonnie-Dev/LaunchPad)
-* [*Goalie*: A Qatar 2022 App](https://github.com/jxareas/Goalie)
-
-## 🕹️ UI/UX 🕹️
-
-This section is all about detailing the UI/UX of your project, their themes and animations.
-
-The animations and interactive content from this section should be placed inside of [`readme-assets/gifs`](./readme-assets/gifs).
-
-Animation 1	|	Animation 2	|	Animation 3 | Animation 4	|
-:------:|:---------------------:|:-----------------------------:|:-------------:|
-![](readme-assets/images/screenshot_placeholder.png)  |  ![](readme-assets/images/screenshot_placeholder.png)  |  ![](readme-assets/images/screenshot_placeholder.png)  |  ![](readme-assets/images/screenshot_placeholder.png)
+**PolyLab** is a sample Angular micro front-end for a Laboratory Information Management System (LIMS). It provides a user-friendly interface for managing laboratory data and workflows.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 📷 Screenshots 📷
 
-Here you can add your projects's screenshots, reference the Design System used (Material / Cupertino / Custom) and the different UI Modes (Night / Dark).
+[Insert screenshots here]
 
-The screenshots from this section should be placed inside of [`readme-assets/images`](./readme-assets/images/)
-
-| Screen 1  | Screen 2 | Screen 3 |
-| ------------- | ------------- |  ------------- |
-| ![](readme-assets/images/screenshot_placeholder.png)  | ![](readme-assets/images/screenshot_placeholder.png)  | ![](readme-assets/images/screenshot_placeholder.png)  |
-| ![](readme-assets/images/screenshot_placeholder.png)  | ![](readme-assets/images/screenshot_placeholder.png)  | ![](readme-assets/images/screenshot_placeholder.png)  |
-
-| Screen 4  | Screen 5 | Screen 6 |
-| ------------- | ------------- |  ------------- |
-| ![](readme-assets/images/screenshot_placeholder.png)  | ![](readme-assets/images/screenshot_placeholder.png)  | ![](readme-assets/images/screenshot_placeholder.png)  |
-| ![](readme-assets/images/screenshot_placeholder.png)  | ![](readme-assets/images/screenshot_placeholder.png)  | ![](readme-assets/images/screenshot_placeholder.png)  |
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 📝 Requirements 📝
 
-Here you can give instructions on how to set up your project locally: Installation, API keys, etc.
+PolyLab has the following requirements:
 
-1. Get a free API Key at https://example.com
+- Node.js 18.16.0 or higher, as specified by the [`.nvmrc`](/.nvmrc) file.
+- Angular CLI 16.0 or higher
+- [PolyLab API](<(https://github.com/jxareas/PolyLab-API)>) to connect to
+
+Here are the instructions on how to setup the project locally:
+
+1. Install and run the [PolyLab-API](https://github.com/jxareas/PolyLab-API).
 2. Clone the repo
+
 ```bash
-git clone https://github.com/your_username_/Project-Name.git 
-```
-3. Install NPM packages
-```bash 
-npm install
+git clone https://github.com/jxareas/PolyLab.git
 ```
 
-Enter your API in config.js
-```javascript
-const API_KEY = 'ENTER YOUR API';
+3. Install NPM packages
+
+```bash
+yarn install
 ```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🛠 Architecture 🛠
 
-This section should comment the Architecture used in the project. 
+**PolyLab** follows a micro front-end architecture, using Angular as the front-end
+framework.
+It is designed to be integrated with a [backend API](https://github.com/jxareas/PolyLab-API) that provides the necessary data and functionality for managing laboratory information.
+
+This project is built using a modular approach, with each module encapsulating a specific set of features.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🦾 Technologies 🦾
 
-This section should list any major frameworks/libraries used to bootstrap your project. 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+The project uses the following frameworks & libraries:
 
-
-## 🪶 Author(s) 🪶
-
-
-Your Name - @twitter_usernamme - email@example.com
-
-**Note:** If there are many contributors, you might consider using:  
-- [Contributors List](https://github.com/mgechev/github-contributors-list)
-- [contrib.rocks](https://contrib.rocks/preview?repo=angular%2Fangular-ja)
-
+- **Angular**: a comprehensive framework that allows for the development of dynamic, high-performance web applications.
+- **TypeScript**: a strongly-typed superset of JavaScript that provides features such as type checking, interfaces, and classes.
+- **RxJs**: a reactive programming library for JavaScript. It is used extensively in PolyLab for handling asynchronous operations, such as HTTP requests and event handling.
+- **PrimeNG**: a set of open-source UI components for Angular.
+- **Angular Material**: a UI component library built by the Angular team that provides a rich set of pre-built UI components based on Google's Material Design guidelines.
+- **ESLint**: a static code analysis tool for identifying problematic patterns found in JavaScript code.
+- **Lint-staged**: a tool that allows you to run linters on specific files before they are committed, following the conventional commits standard.
+- **Husky**: a tool that allows you to set up git hooks easily.
+- **Prettier**: a code formatter that ensures consistent code formatting across the project.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 📜 License 📜
+
 <!-- Change this license for the one used in your project -->
-```
-MIT License
 
-Copyright (c) 2023 Jonathan Areas
+PolyLab is licensed under the [GNU Affero GPL v3.0](https://github.com/jxareas/PolyLab/blob/master/LICENSE).
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-<!-- This is a custom version of the Read-My-README template, by Jon Areas, 
+<!-- This is a custom version of the Read-My-README template, by Jon Areas,
 found at: https://github.com/jxareas/read-my-readme -->
-

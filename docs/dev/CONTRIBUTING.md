@@ -18,6 +18,5 @@ steps to kick-start the development:
 1. We follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.4/) in our commit messages, e.g.
    `feat(core): improve typing`, which are enforced via `husky`. For more information about this step, [follow our guide to Conventional Commits](./COMMIT.adoc).
 2. Make sure you cover all code changes with unit tests
-3. When you are ready, create a Pull Request of your fork into original repository
-
-
+3. Add your changes to the `CHANGELOG.md` file
+4. When you are ready, create a Pull Request of your fork into the original repository
