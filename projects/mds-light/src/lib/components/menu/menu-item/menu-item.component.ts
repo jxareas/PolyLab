@@ -1,25 +1,28 @@
-import { ChangeDetectorRef, Component, HostBinding, Input, OnDestroy, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, HostBinding, Input, OnDestroy, OnInit, forwardRef } from "@angular/core";
 import { animate, state, style, transition, trigger } from "@angular/animations";
 import { LayoutService } from "../../layout/layout.service";
-import { NavigationEnd, Router } from "@angular/router";
+import { NavigationEnd, Router, RouterLinkActive, RouterLink } from "@angular/router";
 import { MenuService } from "../menu.service";
 import { filter, Subscription } from "rxjs";
+import { NgIf, NgClass, NgFor } from "@angular/common";
 
 @Component({
-  selector: '[mds-menu-item]',
-  templateUrl: './menu-item.component.html',
-  styleUrls: ['./menu-item.component.scss'],
-  animations: [
-    trigger('children', [
-      state('collapsed', style({
-        height: '0'
-      })),
-      state('expanded', style({
-        height: '*'
-      })),
-      transition('collapsed <=> expanded', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)'))
-    ])
-  ]
+    selector: '[mds-menu-item]',
+    templateUrl: './menu-item.component.html',
+    styleUrls: ['./menu-item.component.scss'],
+    animations: [
+        trigger('children', [
+            state('collapsed', style({
+                height: '0'
+            })),
+            state('expanded', style({
+                height: '*'
+            })),
+            transition('collapsed <=> expanded', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)'))
+        ])
+    ],
+    standalone: true,
+    imports: [NgIf, NgClass, RouterLinkActive, RouterLink, NgFor, forwardRef(() => MenuItemComponent)]
 })
 export class MenuItemComponent implements OnInit, OnDestroy {
   @Input() item: any;

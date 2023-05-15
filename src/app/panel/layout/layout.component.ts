@@ -7,10 +7,14 @@ import {
 import { LayoutService } from '../../../../projects/mds-light/src/lib/components/layout/layout.service';
 import { filter, Subscription } from 'rxjs';
 import { SidebarComponent } from '../../../../projects/mds-light/src/lib/components/sidebar/sidebar.component';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from "@angular/router";
 import { HeaderComponent } from "../../../../projects/mds-light/src/lib/components/header/header.component";
+import { FooterComponent } from "../../../../projects/mds-light/src/lib/components/footer/footer.component";
+import { NgClass } from "@angular/common";
 
 @Component({
+  standalone: true,
+  imports: [HeaderComponent, SidebarComponent, FooterComponent, RouterOutlet, NgClass],
   selector: 'jx-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],

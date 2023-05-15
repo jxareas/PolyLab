@@ -1,10 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { LayoutService } from "../layout/layout.service";
+import { MenuItemComponent } from "./menu-item/menu-item.component";
+import { NgFor, NgIf } from "@angular/common";
 
 @Component({
-  selector: 'mds-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+    selector: 'mds-menu',
+    templateUrl: './menu.component.html',
+    styleUrls: ['./menu.component.scss'],
+    standalone: true,
+    imports: [NgFor, NgIf, MenuItemComponent]
 })
 export class MenuComponent implements OnInit {
   model: any[] = [];
