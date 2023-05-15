@@ -14,9 +14,10 @@ export class MdsMenuComponent implements OnInit {
   ngOnInit() {
     this.model = [
       {
-        label: 'Home',
+        label: 'Main',
         items: [
-          { label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] },
+          { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/'] },
+          { label: 'Dashboard', icon: 'pi pi-fw pi-chart-bar', routerLink: ['/dashboard'] },
         ],
       },
       {
@@ -77,7 +78,7 @@ export class MdsMenuComponent implements OnInit {
         ],
       },
       {
-        label: 'Get Started',
+        label: 'Project Info',
         items: [
           {
             label: 'Documentation',
@@ -89,6 +90,11 @@ export class MdsMenuComponent implements OnInit {
             icon: 'pi pi-fw pi-search',
             url: ['https://github.com/jxareas/PolyLab'],
             target: '_blank',
+          },
+          {
+            label: 'License',
+            icon: 'pi pi-fw pi-bookmark',
+            routerLink: ['/license'],
           },
         ],
       },
@@ -121,15 +127,15 @@ export class MdsMenuComponent implements OnInit {
       //   ]
       // },
       {
-        label: 'Utilities',
+        label: 'Design System',
         items: [
           {
-            label: 'PrimeIcons',
+            label: 'Icons',
             icon: 'pi pi-fw pi-prime',
             routerLink: ['/utilities/icons'],
           },
           {
-            label: 'PrimeFlex',
+            label: 'Layout',
             icon: 'pi pi-fw pi-desktop',
             url: ['https://www.primefaces.org/primeflex/'],
             target: '_blank',
