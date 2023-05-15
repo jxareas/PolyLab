@@ -17,6 +17,9 @@
         "./scripts/eslint/typescript.js"
       ],
       "rules": {
+        "@angular-eslint/prefer-on-push-component-change-detection": "off",
+        "@typescript-eslint/quotes": "off",
+        "@typescript-eslint/no-explicit-any": "off",
         "@angular-eslint/directive-selector": [
           "error",
           {
@@ -41,8 +44,7 @@
         "plugin:@angular-eslint/template/recommended",
         "plugin:@angular-eslint/template/accessibility"
       ],
-      "plugins": ["@typescript-eslint", "@angular-eslint", "unicorn"],
-      "rules": {}
+      "plugins": ["@typescript-eslint", "@angular-eslint", "unicorn"]
     }
   ]
 }

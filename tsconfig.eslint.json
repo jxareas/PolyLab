@@ -14,14 +14,5 @@
     "declarationDir": "dist/types",
     "outDir": "dist",
     "baseUrl": "."
-  },
-  "overrides": [
-    {
-      "files": ["*.ts"],
-      "rules": {
-        "@typescript-eslint/quotes": "off",
-        "@angular-eslint/prefer-on-push-component-change-detection": "off"
-      }
-    }
-  ]
+  }
 }

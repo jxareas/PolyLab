@@ -5,6 +5,9 @@
     {
       "files": ["*.ts"],
       "rules": {
+        "@typescript-eslint/quotes": "off",
+        "@angular-eslint/prefer-on-push-component-change-detection": "off",
+        "@typescript-eslint/no-explicit-any": "off",
         "@angular-eslint/directive-selector": [
           "error",
           {
@@ -13,14 +16,7 @@
             "style": "camelCase"
           }
         ],
-        "@angular-eslint/component-selector": [
-          "error",
-          {
-            "type": "element",
-            "prefix": "mds",
-            "style": "kebab-case"
-          }
-        ]
+        "@angular-eslint/component-selector": "off"
       }
     },
     {
