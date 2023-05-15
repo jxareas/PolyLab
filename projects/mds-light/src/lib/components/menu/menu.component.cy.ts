@@ -1,7 +1,7 @@
-import { MenuComponent } from './menu.component'
+import { MdsMenuComponent } from './mds-menu.component'
 
 describe('MenuComponent', () => {
   it('should mount', () => {
-    cy.mount(MenuComponent)
+    cy.mount(MdsMenuComponent)
   })
 })

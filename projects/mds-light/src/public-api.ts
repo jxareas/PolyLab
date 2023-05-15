@@ -3,8 +3,8 @@
  */
 
 export {
-  HeaderModule,
-  MenuModule,
-  DrawerModule,
-  FooterModule,
+  MdsHeaderModule,
+  MdsMenuModule,
+  MdsDrawerModule,
+  MdsFooterModule,
 } from './lib/components';
