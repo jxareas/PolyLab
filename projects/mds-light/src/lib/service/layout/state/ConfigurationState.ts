@@ -6,3 +6,12 @@ export interface ConfigurationState {
   menuMode: string;
   scale: number;
 }
+
+export const DefaultConfigurationState: ConfigurationState = {
+  ripple: false,
+  inputStyle: 'outlined',
+  menuMode: 'static',
+  colorScheme: 'dark',
+  theme: 'lara-dark-teal',
+  scale: 14,
+};

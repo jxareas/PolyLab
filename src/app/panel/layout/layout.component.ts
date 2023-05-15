@@ -72,7 +72,7 @@ export class LayoutComponent implements OnDestroy {
           );
         }
 
-        if (this.layoutService.state.staticMenuMobileActive) {
+        if (this.layoutService.layoutState.staticMenuMobileActive) {
           this.blockBodyScroll();
         }
       });
@@ -86,9 +86,9 @@ export class LayoutComponent implements OnDestroy {
   }
 
   hideMenu() {
-    this.layoutService.state.overlayMenuActive = false;
-    this.layoutService.state.staticMenuMobileActive = false;
-    this.layoutService.state.menuHoverActive = false;
+    this.layoutService.layoutState.overlayMenuActive = false;
+    this.layoutService.layoutState.staticMenuMobileActive = false;
+    this.layoutService.layoutState.menuHoverActive = false;
     if (this.menuOutsideClickListener) {
       this.menuOutsideClickListener();
       this.menuOutsideClickListener = null;
@@ -97,7 +97,7 @@ export class LayoutComponent implements OnDestroy {
   }
 
   hideProfileMenu() {
-    this.layoutService.state.profileSidebarVisible = false;
+    this.layoutService.layoutState.profileSidebarVisible = false;
     if (this.profileMenuOutsideClickListener) {
       this.profileMenuOutsideClickListener();
       this.profileMenuOutsideClickListener = null;
@@ -128,17 +128,17 @@ export class LayoutComponent implements OnDestroy {
 
   get containerClass() {
     return {
-      'layout-theme-light': this.layoutService.config.colorScheme === 'light',
-      'layout-theme-dark': this.layoutService.config.colorScheme === 'dark',
-      'layout-overlay': this.layoutService.config.menuMode === 'overlay',
-      'layout-static': this.layoutService.config.menuMode === 'static',
+      'layout-theme-light': this.layoutService.configurationState.colorScheme === 'light',
+      'layout-theme-dark': this.layoutService.configurationState.colorScheme === 'dark',
+      'layout-overlay': this.layoutService.configurationState.menuMode === 'overlay',
+      'layout-static': this.layoutService.configurationState.menuMode === 'static',
       'layout-static-inactive':
-        this.layoutService.state.staticMenuDesktopInactive &&
-        this.layoutService.config.menuMode === 'static',
-      'layout-overlay-active': this.layoutService.state.overlayMenuActive,
-      'layout-mobile-active': this.layoutService.state.staticMenuMobileActive,
-      'p-input-filled': this.layoutService.config.inputStyle === 'filled',
-      'p-ripple-disabled': !this.layoutService.config.ripple,
+        this.layoutService.layoutState.staticMenuDesktopInactive &&
+        this.layoutService.configurationState.menuMode === 'static',
+      'layout-overlay-active': this.layoutService.layoutState.overlayMenuActive,
+      'layout-mobile-active': this.layoutService.layoutState.staticMenuMobileActive,
+      'p-input-filled': this.layoutService.configurationState.inputStyle === 'filled',
+      'p-ripple-disabled': !this.layoutService.configurationState.ripple,
     };
   }
 

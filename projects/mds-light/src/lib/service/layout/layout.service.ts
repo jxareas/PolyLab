@@ -1,29 +1,18 @@
 import { Injectable } from '@angular/core';
-import { ConfigurationState } from "./state/ConfigurationState";
-import { LayoutState } from "./state/LayoutState";
-import { Subject } from "rxjs";
+import {
+  ConfigurationState,
+  DefaultConfigurationState,
+} from './state/ConfigurationState';
+import { DefaultLayoutState } from './state/LayoutState';
+import { Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LayoutService {
-  config: ConfigurationState = {
-    ripple: false,
-    inputStyle: 'outlined',
-    menuMode: 'static',
-    colorScheme: 'light',
-    theme: 'lara-light-indigo',
-    scale: 14,
-  };
+  configurationState = DefaultConfigurationState;
 
-  state: LayoutState = {
-    staticMenuDesktopInactive: false,
-    overlayMenuActive: false,
-    profileSidebarVisible: false,
-    configSidebarVisible: false,
-    staticMenuMobileActive: false,
-    menuHoverActive: false
-  };
+  layoutState = DefaultLayoutState;
 
   private configUpdate = new Subject<ConfigurationState>();
 
@@ -34,37 +23,39 @@ export class LayoutService {
   overlayOpen$ = this.overlayOpen.asObservable();
   onMenuToggle() {
     if (this.isOverlay()) {
-      this.state.overlayMenuActive = !this.state.overlayMenuActive;
-      if (this.state.overlayMenuActive) {
+      this.layoutState.overlayMenuActive = !this.layoutState.overlayMenuActive;
+      if (this.layoutState.overlayMenuActive) {
         this.overlayOpen.next(null);
       }
     }
 
     if (this.isDesktop()) {
-      this.state.staticMenuDesktopInactive = !this.state.staticMenuDesktopInactive;
-    }
-    else {
-      this.state.staticMenuMobileActive = !this.state.staticMenuMobileActive;
+      this.layoutState.staticMenuDesktopInactive =
+        !this.layoutState.staticMenuDesktopInactive;
+    } else {
+      this.layoutState.staticMenuMobileActive =
+        !this.layoutState.staticMenuMobileActive;
 
-      if (this.state.staticMenuMobileActive) {
+      if (this.layoutState.staticMenuMobileActive) {
         this.overlayOpen.next(null);
       }
     }
   }
 
   showProfileSidebar() {
-    this.state.profileSidebarVisible = !this.state.profileSidebarVisible;
-    if (this.state.profileSidebarVisible) {
+    this.layoutState.profileSidebarVisible =
+      !this.layoutState.profileSidebarVisible;
+    if (this.layoutState.profileSidebarVisible) {
       this.overlayOpen.next(null);
     }
   }
 
   showConfigSidebar() {
-    this.state.configSidebarVisible = true;
+    this.layoutState.configSidebarVisible = true;
   }
 
   isOverlay() {
-    return this.config.menuMode === 'overlay';
+    return this.configurationState.menuMode === 'overlay';
   }
 
   isDesktop() {
@@ -76,6 +67,6 @@ export class LayoutService {
   }
 
   onConfigUpdate() {
-    this.configUpdate.next(this.config);
+    this.configUpdate.next(this.configurationState);
   }
 }

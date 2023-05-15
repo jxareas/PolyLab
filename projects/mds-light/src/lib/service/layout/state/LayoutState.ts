@@ -6,3 +6,12 @@ export interface LayoutState {
   staticMenuMobileActive: boolean;
   menuHoverActive: boolean;
 }
+
+export const DefaultLayoutState: LayoutState = {
+  staticMenuDesktopInactive: true,
+  overlayMenuActive: false,
+  profileSidebarVisible: false,
+  configSidebarVisible: false,
+  staticMenuMobileActive: false,
+  menuHoverActive: false,
+};
