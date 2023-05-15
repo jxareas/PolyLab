@@ -17,6 +17,8 @@
         "./scripts/eslint/typescript.js"
       ],
       "rules": {
+        "@typescript-eslint/quotes": "off",
+        "@angular-eslint/prefer-on-push-component-change-detection": "off",
         "@angular-eslint/directive-selector": [
           "error",
           {

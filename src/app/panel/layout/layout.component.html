@@ -1,0 +1,20 @@
+<div class="layout-wrapper" [ngClass]="containerClass">
+  <mds-header />
+  <div class="layout-sidebar">
+    <mds-drawer />
+  </div>
+  <div class="layout-main-container">
+    <div class="layout-main">
+      <router-outlet />
+    </div>
+    <mds-footer
+      imageLocation="assets/layout/images/{{
+        layoutService.config.colorScheme === 'light'
+          ? 'logo-dark'
+          : 'logo-white'
+      }}.svg" />
+  </div>
+  <!--  TODO : Create Configuration Component -->
+  <!--  <jx-configuration></jx-configuration>-->
+  <div class="layout-mask"></div>
+</div>

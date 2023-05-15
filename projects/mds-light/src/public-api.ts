@@ -8,3 +8,5 @@ export {
   MdsDrawerModule,
   MdsFooterModule,
 } from './lib/components';
+
+export { MdsLayoutModule } from './lib/service';

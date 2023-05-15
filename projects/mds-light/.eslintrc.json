@@ -5,8 +5,6 @@
     {
       "files": ["*.ts"],
       "rules": {
-        "@typescript-eslint/quotes": "off",
-        "@angular-eslint/prefer-on-push-component-change-detection": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "@angular-eslint/component-selector": "off",
         "@angular-eslint/directive-selector": [

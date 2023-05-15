@@ -87,7 +87,7 @@ export class MdsMenuComponent implements OnInit {
           {
             label: 'View Source',
             icon: 'pi pi-fw pi-search',
-            url: ['https://github.com/primefaces/sakai-ng'],
+            url: ['https://github.com/jxareas/PolyLab'],
             target: '_blank',
           },
         ],
