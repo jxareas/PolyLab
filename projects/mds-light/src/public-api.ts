@@ -7,4 +7,5 @@ export {
   MdsMenuModule,
   MdsDrawerModule,
   MdsFooterModule,
+  MdsConfigurationModule,
 } from './lib/components';

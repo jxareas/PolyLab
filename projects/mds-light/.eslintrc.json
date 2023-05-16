@@ -5,7 +5,6 @@
     {
       "files": ["*.ts"],
       "rules": {
-        "@typescript-eslint/no-explicit-any": "off",
         "@angular-eslint/component-selector": "off",
         "@angular-eslint/directive-selector": [
           "error",
