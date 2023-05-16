@@ -20,6 +20,10 @@
         "@typescript-eslint/quotes": "off",
         "@angular-eslint/prefer-on-push-component-change-detection": "off",
         "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "unicorn/prefer-logical-operator-over-ternary": "off",
+        "@angular-eslint/template/no-autofocus": "off",
+        "@angular-eslint/template/label-has-associated-control": "off",
         "@angular-eslint/directive-selector": [
           "error",
           {
