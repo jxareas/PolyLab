@@ -3,9 +3,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'jx-pricing',
   templateUrl: './pricing.component.html',
-  styles: [
-  ]
+  styles: [],
 })
-export class PricingComponent {
-
-}
+export class PricingComponent {}

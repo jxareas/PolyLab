@@ -1,7 +1,7 @@
-import { DocumentationComponent } from './documentation.component'
+import { DocumentationComponent } from './documentation.component';
 
 describe('DocumentationComponent', () => {
   it('should mount', () => {
-    cy.mount(DocumentationComponent)
-  })
-})
+    cy.mount(DocumentationComponent);
+  });
+});

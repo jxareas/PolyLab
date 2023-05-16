@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { PanelModule } from './panel/panel.module';
 import { AppRoutingModule } from './app-routing.module';
-import { IconService } from "../../projects/mds-light/src/lib/service/icons/icon.service";
+import { IconService } from '../../projects/mds-light/src/lib/service/icons/icon.service';
 
 @NgModule({
   declarations: [AppComponent],

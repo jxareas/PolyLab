@@ -1,7 +1,7 @@
-import { LicenseComponent } from './license.component'
+import { LicenseComponent } from './license.component';
 
 describe('LicenseComponent', () => {
   it('should mount', () => {
-    cy.mount(LicenseComponent)
-  })
-})
+    cy.mount(LicenseComponent);
+  });
+});

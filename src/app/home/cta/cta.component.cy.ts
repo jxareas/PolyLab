@@ -1,7 +1,7 @@
-import { CtaComponent } from './cta.component'
+import { CtaComponent } from './cta.component';
 
 describe('CtaComponent', () => {
   it('should mount', () => {
-    cy.mount(CtaComponent)
-  })
-})
+    cy.mount(CtaComponent);
+  });
+});

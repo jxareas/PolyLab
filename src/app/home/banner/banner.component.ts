@@ -4,6 +4,4 @@ import { Component } from '@angular/core';
   selector: 'jx-banner',
   templateUrl: './banner.component.html',
 })
-export class BannerComponent {
-
-}
+export class BannerComponent {}

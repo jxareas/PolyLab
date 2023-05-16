@@ -17,7 +17,11 @@ export class MdsMenuComponent implements OnInit {
         label: 'Main',
         items: [
           { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/'] },
-          { label: 'Dashboard', icon: 'pi pi-fw pi-chart-bar', routerLink: ['/dashboard'] },
+          {
+            label: 'Dashboard',
+            icon: 'pi pi-fw pi-chart-bar',
+            routerLink: ['/dashboard'],
+          },
         ],
       },
       {

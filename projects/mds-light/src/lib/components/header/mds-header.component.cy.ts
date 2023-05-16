@@ -1,7 +1,7 @@
-import { MdsHeaderComponent } from './mds-header.component'
+import { MdsHeaderComponent } from './mds-header.component';
 
 describe('HeaderComponent', () => {
   it('should mount', () => {
-    cy.mount(MdsHeaderComponent)
-  })
-})
+    cy.mount(MdsHeaderComponent);
+  });
+});

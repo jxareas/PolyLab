@@ -1,7 +1,7 @@
-import { MdsFooterComponent } from './mds-footer.component'
+import { MdsFooterComponent } from './mds-footer.component';
 
 describe('FooterComponent', () => {
   it('should mount', () => {
-    cy.mount(MdsFooterComponent)
-  })
-})
+    cy.mount(MdsFooterComponent);
+  });
+});

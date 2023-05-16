@@ -128,16 +128,22 @@ export class LayoutComponent implements OnDestroy {
 
   get containerClass() {
     return {
-      'layout-theme-light': this.layoutService.configurationState.colorScheme === 'light',
-      'layout-theme-dark': this.layoutService.configurationState.colorScheme === 'dark',
-      'layout-overlay': this.layoutService.configurationState.menuMode === 'overlay',
-      'layout-static': this.layoutService.configurationState.menuMode === 'static',
+      'layout-theme-light':
+        this.layoutService.configurationState.colorScheme === 'light',
+      'layout-theme-dark':
+        this.layoutService.configurationState.colorScheme === 'dark',
+      'layout-overlay':
+        this.layoutService.configurationState.menuMode === 'overlay',
+      'layout-static':
+        this.layoutService.configurationState.menuMode === 'static',
       'layout-static-inactive':
         this.layoutService.layoutState.staticMenuDesktopInactive &&
         this.layoutService.configurationState.menuMode === 'static',
       'layout-overlay-active': this.layoutService.layoutState.overlayMenuActive,
-      'layout-mobile-active': this.layoutService.layoutState.staticMenuMobileActive,
-      'p-input-filled': this.layoutService.configurationState.inputStyle === 'filled',
+      'layout-mobile-active':
+        this.layoutService.layoutState.staticMenuMobileActive,
+      'p-input-filled':
+        this.layoutService.configurationState.inputStyle === 'filled',
       'p-ripple-disabled': !this.layoutService.configurationState.ripple,
     };
   }

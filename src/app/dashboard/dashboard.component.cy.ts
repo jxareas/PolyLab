@@ -1,7 +1,7 @@
-import { DashboardComponent } from './dashboard.component'
+import { DashboardComponent } from './dashboard.component';
 
 describe('DashboardComponent', () => {
   it('should mount', () => {
-    cy.mount(DashboardComponent)
-  })
-})
+    cy.mount(DashboardComponent);
+  });
+});
