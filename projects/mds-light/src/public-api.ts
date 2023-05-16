@@ -8,4 +8,5 @@ export {
   MdsDrawerModule,
   MdsFooterModule,
   MdsConfigurationModule,
+  MdsNotFoundModule,
 } from './lib/components';

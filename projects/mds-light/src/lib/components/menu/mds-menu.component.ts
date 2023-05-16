@@ -86,15 +86,15 @@ export class MdsMenuComponent implements OnInit {
             routerLink: ['/documentation'],
           },
           {
-            label: 'View Source',
-            icon: 'pi pi-fw pi-search',
-            url: ['https://github.com/jxareas/PolyLab'],
-            target: '_blank',
-          },
-          {
             label: 'License',
             icon: 'pi pi-fw pi-bookmark',
             routerLink: ['/license'],
+          },
+          {
+            label: 'View Code',
+            icon: 'pi pi-fw pi-external-link',
+            url: ['https://github.com/jxareas/PolyLab'],
+            target: '_blank',
           },
         ],
       },
@@ -132,13 +132,12 @@ export class MdsMenuComponent implements OnInit {
           {
             label: 'Icons',
             icon: 'pi pi-fw pi-prime',
-            routerLink: ['/utilities/icons'],
+            routerLink: ['/design/icons'],
           },
           {
             label: 'Layout',
             icon: 'pi pi-fw pi-desktop',
-            url: ['https://www.primefaces.org/primeflex/'],
-            target: '_blank',
+            routerLink: ['/design/layout'],
           },
         ],
       },

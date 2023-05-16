@@ -8,11 +8,13 @@ import {
   MdsFooterModule,
   MdsHeaderModule,
 } from '../../../projects/mds-light/src/public-api';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [LayoutComponent],
   imports: [
     CommonModule,
+    HttpClientModule,
     MdsHeaderModule,
     MdsDrawerModule,
     MdsConfigurationModule,

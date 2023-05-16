@@ -11,7 +11,7 @@ export const DefaultConfigurationState: ConfigurationState = {
   ripple: false,
   inputStyle: 'outlined',
   menuMode: 'static',
-  colorScheme: 'dark',
-  theme: 'lara-dark-teal',
+  colorScheme: 'light',
+  theme: 'lara-light-teal',
   scale: 14,
 };
