@@ -4,3 +4,4 @@ export * from './drawer/mds-drawer.module';
 export * from './footer/mds-footer.module';
 export * from './configuration/mds-configuration.module';
 export * from './not-found/mds-not-found.module';
+export * from './exclusive-offer/mds-offer.module';

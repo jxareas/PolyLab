@@ -29,14 +29,62 @@ export class MdsMenuComponent implements OnInit {
         icon: 'pi pi-fw pi-briefcase',
         items: [
           {
-            label: 'Resources',
-            icon: 'pi pi-fw pi-globe',
-            routerLink: ['/landing'],
+            label: 'Records',
+            icon: 'pi pi-fw pi-table',
+            items: [
+              {
+                label: 'Patients',
+                icon: 'pi pi-user',
+                routerLink: ['/records/patients'],
+              },
+              {
+                label: 'Personal',
+                icon: 'pi pi-fw pi-users',
+                routerLink: ['/records/doctors'],
+              },
+            ],
           },
           {
-            label: 'Users',
-            icon: 'pi pi-fw pi-user',
-            routerLink: ['/users'],
+            label: 'Location',
+            icon: 'pi pi-fw pi-compass',
+            items: [
+              {
+                label: 'Country',
+                icon: 'pi pi-fw pi-globe',
+                routerLink: ['/location/country'],
+              },
+              {
+                label: 'Department',
+                icon: 'pi pi-map',
+                routerLink: ['/location/department'],
+              },
+              {
+                label: 'Municipality',
+                icon: 'pi pi-flag',
+                routerLink: ['/location/municipality'],
+              },
+            ],
+          },
+          {
+            label: 'Exams',
+            icon: 'pi pi-fw pi-filter',
+            items: [
+              {
+                label: 'Exams',
+                icon: 'pi pi-fw pi-file-o',
+                routerLink: ['/exam/exam'],
+              },
+              {
+                label: 'Exam Profiles',
+                icon: 'pi pi-fw pi-list',
+                routerLink: ['/exam/exam-profile'],
+              },
+              {
+                label: 'Normal Values',
+                icon: 'pi pi-pencil',
+                routerLink: ['/exam/normal-values'],
+              },
+            ],
           },
           {
             label: 'Security',
@@ -60,33 +108,63 @@ export class MdsMenuComponent implements OnInit {
             ],
           },
           {
-            label: 'Crud',
-            icon: 'pi pi-fw pi-pencil',
-            routerLink: ['/pages/crud'],
+            label: 'Profession',
+            icon: 'pi pi-briefcase',
+            routerLink: ['/profession'],
           },
           {
-            label: 'Timeline',
-            icon: 'pi pi-fw pi-calendar',
-            routerLink: ['/pages/timeline'],
+            label: 'Gender',
+            icon: 'pi pi-tags',
+            routerLink: ['/gender'],
           },
           {
-            label: 'Not Found',
-            icon: 'pi pi-fw pi-exclamation-circle',
-            routerLink: ['/notfound'],
+            label: 'Education Level',
+            icon: 'pi pi-folder-open',
+            routerLink: ['/education'],
           },
           {
-            label: 'Empty',
-            icon: 'pi pi-fw pi-circle-off',
-            routerLink: ['/pages/empty'],
+            label: 'Religion',
+            icon: 'pi pi-folder-open',
+            routerLink: ['/religion'],
           },
+          // {
+          //   label: 'Resources',
+          //   icon: 'pi pi-fw pi-globe',
+          //   routerLink: ['/landing'],
+          // },
+          // {
+          //   label: 'Users',
+          //   icon: 'pi pi-fw pi-user',
+          //   routerLink: ['/users'],
+          // },
+          // {
+          //   label: 'Crud',
+          //   icon: 'pi pi-fw pi-pencil',
+          //   routerLink: ['/pages/crud'],
+          // },
+          // {
+          //   label: 'Timeline',
+          //   icon: 'pi pi-fw pi-calendar',
+          //   routerLink: ['/pages/timeline'],
+          // },
+          // {
+          //   label: 'Not Found',
+          //   icon: 'pi pi-fw pi-exclamation-circle',
+          //   routerLink: ['/notfound'],
+          // },
+          // {
+          //   label: 'Empty',
+          //   icon: 'pi pi-fw pi-circle-off',
+          //   routerLink: ['/pages/empty'],
+          // },
         ],
       },
       {
-        label: 'Project Info',
+        label: 'General Info',
         items: [
           {
             label: 'Documentation',
-            icon: 'pi pi-fw pi-question',
+            icon: 'pi pi-fw pi-book',
             routerLink: ['/documentation'],
           },
           {
@@ -95,7 +173,12 @@ export class MdsMenuComponent implements OnInit {
             routerLink: ['/license'],
           },
           {
-            label: 'View Code',
+            label: 'About',
+            icon: 'pi pi-fw pi-question',
+            routerLink: ['/about'],
+          },
+          {
+            label: 'View Source',
             icon: 'pi pi-fw pi-external-link',
             url: ['https://github.com/jxareas/PolyLab'],
             target: '_blank',

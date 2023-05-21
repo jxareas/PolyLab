@@ -1,7 +1,6 @@
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { LayoutComponent } from './panel/layout/layout.component';
-import { MdsNotFoundComponent } from '../../projects/mds-light/src/lib/components/not-found/mds-not-found.component';
 
 const routes: Routes = [
   {
@@ -17,6 +16,21 @@ const routes: Routes = [
         path: 'dashboard',
         loadChildren: () =>
           import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+      },
+      {
+        path: 'records',
+        loadChildren: () =>
+          import('./records/records.module').then(m => m.RecordsModule),
+      },
+      {
+        path: 'exam',
+        loadChildren: () =>
+          import('./exams/exams.module').then(m => m.ExamsModule),
+      },
+      {
+        path: 'location',
+        loadChildren: () =>
+          import('./location/location.module').then(m => m.LocationModule),
       },
       {
         path: 'design',
@@ -37,8 +51,8 @@ const routes: Routes = [
       },
     ],
   },
-  { path: 'not-found', component: MdsNotFoundComponent },
-  { path: '**', redirectTo: '/not-found' },
+  // { path: 'not-found', component: MdsNotFoundComponent },
+  // { path: '**', redirectTo: '/not-found' },
 ];
 
 const navigationExtras: ExtraOptions = {
