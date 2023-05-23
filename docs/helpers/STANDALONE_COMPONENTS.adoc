@@ -1,0 +1,30 @@
+= Migrate an existing Angular project to standalone
+
+:migration: https://angular.io/guide/standalone-migration#migration-modes
+
+As of version 15.2.0, Angular offers a schematic to help project authors convert existing projects to the new standalone APIs. The schematic aims to transform as much code as possible automatically, but it may require some manual fixes by the project author. Run the schematic with the following command:
+
+[source, angular2html]
+ng generate @angular/core:standalone
+
+== Prerequisites
+Before using the schematic, please ensure that the project:
+
+- Is using Angular 15.2.0 or later.
+- Builds without any compilation errors.
+- Is on a clean Git branch and all work is saved.
+
+== Schematic options
+[cols="1,1"]
+|===
+|Option
+|Details
+
+|`mode`
+|The transformation to perform. See {migration}[Migration Modes] for details on the available options.
+
+|`path`
+|The path to migrate, relative to the project root. You can use this option to migrate sections of your project incrementally.
+
+
+

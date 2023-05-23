@@ -5,6 +5,7 @@
     {
       "files": ["*.ts"],
       "rules": {
+        "@angular-eslint/component-selector": "off",
         "@angular-eslint/directive-selector": [
           "error",
           {
@@ -12,15 +13,16 @@
             "prefix": "mds",
             "style": "camelCase"
           }
-        ],
-        "@angular-eslint/component-selector": [
-          "error",
-          {
-            "type": "element",
-            "prefix": "mds",
-            "style": "kebab-case"
-          }
         ]
+        //        @custom
+        //        "@angular-eslint/component-selector": [
+        //          "error",
+        //          {
+        //            "type": "element",
+        //            "prefix": "mds",
+        //            "style": "kebab-case"
+        //          }
+        //        ]
       }
     },
     {
