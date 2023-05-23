@@ -31,13 +31,17 @@
 
 **PolyLab** is a sample Angular micro front-end for a Laboratory Information Management System (LIMS). It provides a user-friendly interface for managing laboratory data and workflows.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## 📷 Screenshots 📷
 
-[Insert screenshots here]
+PolyLab's user interface is crafted with a focus on simplicity, elegance, interactivity and intuitive user experience. The thoughtful color palette and typography choices enhance readability and ensure a visually appealing presentation of data.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+It seamlessly integrates both dark and light modes, allowing users to effortlessly switch between the two based on their preferences.
+
+| Light                                      | Night                                     |
+| ------------------------------------------ | ----------------------------------------- |
+| ![](readme-assets/images/home_light.png)   | ![](readme-assets/images/home_dark.png)   |
+| ![](readme-assets/images/crud_light.png)   | ![](readme-assets/images/crud_dark.png)   |
+| ![](readme-assets/images/drawer_light.png) | ![](readme-assets/images/drawer_dark.png) |
 
 ## 📝 Requirements 📝
 
@@ -45,7 +49,7 @@ PolyLab has the following requirements:
 
 - Node.js 18.16.0 or higher, as specified by the [`.nvmrc`](/.nvmrc) file.
 - Angular CLI 16.0 or higher
-- [PolyLab API](<(https://github.com/jxareas/PolyLab-API)>) to connect to
+- [PolyLab API](<(https://github.com/jxareas/PolyLab-REST)>) to connect to
 
 Here are the instructions on how to setup the project locally:
 
@@ -62,8 +66,6 @@ git clone https://github.com/jxareas/PolyLab.git
 yarn install
 ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## 🛠 Architecture 🛠
 
 **PolyLab** follows a micro front-end architecture, using Angular as the front-end
@@ -72,21 +74,19 @@ It is designed to be integrated with a [backend API](https://github.com/jxareas/
 
 This project is built using a modular approach, with each module encapsulating a specific set of features.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## 🦾 Technologies 🦾
 
 The project uses the following frameworks & libraries:
 
 - **Angular**: a comprehensive framework that allows for the development of dynamic, high-performance web applications.
-- **TypeScript**: a strongly-typed superset of JavaScript that provides features such as type checking, interfaces, and classes.
-- **RxJs**: a reactive programming library for JavaScript. It is used extensively in PolyLab for handling asynchronous operations, such as HTTP requests and event handling.
-- **PrimeNG**: a set of open-source UI components for Angular.
+- **TypeScript**: a strongly typed superset of JavaScript that compiles to plain JavaScript. It brings static typing, enhanced tooling, and improved developer experience to the JavaScript ecosystem.
+- **RxJs**: a reactive programming library that enables handling asynchronous and event-based programming in a more convenient and efficient manner. It provides powerful tools for composing and manipulating asynchronous streams of data.
+- **PrimeNG**: a collection of rich UI components for Angular applications. It offers a wide range of customizable and feature-rich components such as data tables, forms, charts, and more
 - **Angular Material**: a UI component library built by the Angular team that provides a rich set of pre-built UI components based on Google's Material Design guidelines.
-- **ESLint**: a static code analysis tool for identifying problematic patterns found in JavaScript code.
-- **Lint-staged**: a tool that allows you to run linters on specific files before they are committed, following the conventional commits standard.
-- **Husky**: a tool that allows you to set up git hooks easily.
-- **Prettier**: a code formatter that ensures consistent code formatting across the project.
+- **ESLint**: a pluggable static code analysis tool for identifying problematic patterns found in JavaScript and TypeScript code.
+- **Lint-staged**: a tool that allows running linters on staged files in a Git repository. It works in conjunction with Husky and enables developers to define specific linting tasks to be performed on files that are staged for committing.
+- **Husky**: a git hook management tool that allows running scripts or commands before git events such as commit, push, and more.
+- **Prettier**: an opinionated code formatter that enforces consistent code style and formatting rules across the project.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 📜 License 📜
