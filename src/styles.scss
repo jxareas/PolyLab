@@ -11,7 +11,10 @@ $gutter: 1rem; // For Prime-flex grid system
 @import "../node_modules/primeflex/primeflex.scss";
 @import "../node_modules/primeicons/primeicons.css";
 
-/* Demo Data */
+/* Font Awesome */
+@import 'font-awesome/css/font-awesome.css';
+
+/* Mock Data */
 @import "assets/demo/styles/flags/flags.css";
 @import "assets/demo/styles/badges.scss";
 @import "assets/demo/styles/code.scss";
