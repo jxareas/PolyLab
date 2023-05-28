@@ -3,6 +3,7 @@ import { CountryService } from './service/country.service';
 import { MessageService } from 'primeng/api';
 import { Country } from './model/country';
 import { Table } from 'primeng/table';
+import { LabelService } from "../../../../projects/mds-light/src/lib/service/labels/label.service";
 
 @Component({
   selector: 'jx-country',
@@ -33,6 +34,7 @@ export class CountryComponent implements OnInit {
   constructor(
     private countryService: CountryService,
     private messageService: MessageService,
+    private labelService: LabelService,
   ) {}
 
   ngOnInit(): void {
@@ -45,11 +47,7 @@ export class CountryComponent implements OnInit {
       { field: 'status', header: 'Status' },
     ];
 
-    this.statuses = [
-      { label: 'ENABLED', value: 1 },
-      { label: 'DISABLED', value: 2 },
-      { label: 'MODIFIED', value: 3 },
-    ];
+    this.statuses = this.labelService.getDefaults();
   }
 
   confirmDelete(): void {
@@ -119,23 +117,11 @@ export class CountryComponent implements OnInit {
     table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
   }
 
-  getLabelColor(countryStatus: number): string {
-    return countryStatus === 1
-      ? 'instock'
-      : countryStatus === 2
-      ? 'lowstock'
-      : countryStatus === 3
-      ? 'outofstock'
-      : 'unknown';
+  getColor(countryStatus: number): string {
+    return this.labelService.getColor(countryStatus);
   }
 
-  getLabelName(countryStatus: number): string {
-    return countryStatus === 1
-      ? 'enabled'
-      : countryStatus === 2
-      ? 'modified'
-      : countryStatus === 3
-      ? 'disabled'
-      : 'unknown';
+  getLabel(countryStatus: number): string {
+    return this.labelService.getTag(countryStatus);
   }
 }

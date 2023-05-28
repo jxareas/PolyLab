@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { IconService } from '../../projects/mds-light/src/lib/service/icons/icon.service';
 import { CountryService } from './location/country/service/country.service';
 import { MessageService } from 'primeng/api';
+import { LabelService } from "../../projects/mds-light/src/lib/service/labels/label.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,7 @@ import { MessageService } from 'primeng/api';
     RouterModule,
     PanelModule,
   ],
-  providers: [IconService, CountryService, MessageService],
+  providers: [IconService, LabelService, CountryService, MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

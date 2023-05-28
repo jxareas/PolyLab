@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {
   ConfigurationState,
   DefaultConfigurationState,
-} from './state/ConfigurationState';
-import { DefaultLayoutState } from './state/LayoutState';
+} from './state/configuration-state';
+import { DefaultLayoutState } from './state/layout-state';
 import { Subject } from 'rxjs';
 
 @Injectable({
