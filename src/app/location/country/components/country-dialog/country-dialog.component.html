@@ -1,0 +1,72 @@
+<p-dialog
+  [(visible)]="countryDialog"
+  [style]="{ width: '450px' }"
+  header="Manage Countries"
+  [contentStyle]="{ overflow: 'visible' }"
+  [modal]="true"
+  class="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="field">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        pInputText
+        id="name"
+        [(ngModel)]="country.name"
+        required
+        [ngClass]="{ 'ng-invalid ng-dirty': submitted && !country.name }" />
+      <small class="ng-dirty ng-invalid" *ngIf="submitted && !country.name"
+      >Name is required.</small
+      >
+    </div>
+    <div class="field">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        pInputTextarea
+        [(ngModel)]="country.description"
+        required
+        rows="3"
+        cols="20"></textarea>
+    </div>
+    <div class="field">
+      <label for="status">Status</label>
+      <p-dropdown
+        [(ngModel)]="country.status"
+        inputId="status"
+        optionValue="value"
+        [options]="statuses"
+        placeholder="Select">
+        <ng-template pTemplate="selectedItem">
+              <span
+                *ngIf="country && country.status"
+                [class]="'product-badge status-' + getColor(country.status)"
+              >{{ getLabel(country.status) }}</span
+              >
+        </ng-template>
+        <ng-template let-option pTemplate="item">
+              <span [class]="'product-badge status-' + 'option.value'">{{
+                option.label
+                }}</span>
+        </ng-template>
+      </p-dropdown>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      pRipple
+      label="Cancel"
+      icon="pi pi-times"
+      class="p-button-text"
+      (click)="hideDialog()"></button>
+    <button
+      pButton
+      pRipple
+      label="Save"
+      icon="pi pi-check"
+      class="p-button-text"
+      (click)="saveCountry()"></button>
+  </ng-template>
+</p-dialog>

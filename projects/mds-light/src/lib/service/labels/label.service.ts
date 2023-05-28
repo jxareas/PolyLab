@@ -11,22 +11,22 @@ export class LabelService {
     ];
   }
 
-  getColor(countryStatus: number): string {
-    return countryStatus === 1
+  getColor(status: number): string {
+    return status === 1
       ? 'instock'
-      : countryStatus === 2
+      : status === 2
         ? 'outofstock'
-        : countryStatus === 3
+        : status === 3
           ? 'lowstock'
           : 'instock';
   }
 
-  getTag(countryStatus: number): string {
-    return countryStatus === 1
+  getTag(status: number): string {
+    return status === 1
       ? 'enabled'
-      : countryStatus === 3
+      : status === 3
         ? 'modified'
-        : countryStatus === 2
+        : status === 2
           ? 'disabled'
           : 'unknown';
   }
