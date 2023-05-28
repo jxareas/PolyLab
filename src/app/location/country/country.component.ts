@@ -1,25 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild } from "@angular/core";
 import { CountryService } from './service/country.service';
 import { MessageService } from 'primeng/api';
 import { Country } from './model/country';
-import { Table } from 'primeng/table';
-import { LabelService } from "../../../../projects/mds-light/src/lib/service/labels/label.service";
+import { CountryDialogComponent } from "./components/country-dialog/country-dialog.component";
+import {
+  MdsDeleteSingleComponent
+} from "../../../../projects/mds-light/src/lib/components/delete-single/mds-delete-single.component";
 
 @Component({
   selector: 'jx-country',
   templateUrl: './country.component.html',
   styleUrls: ['./country.component.scss'],
 })
-export class CountryComponent implements OnInit {
-  countryDialog = false;
+export class CountryComponent {
+
+  @ViewChild('countryDialog') countryDialog: CountryDialogComponent;
+  @ViewChild('deleteCountryDialog') deleteDialog: MdsDeleteSingleComponent;
+
 
   deleteCountryDialog = false;
 
   deleteCountriesDialog = false;
 
-  countries: Country[] = [];
 
   country: Country = {};
+  // TODO : Handle selected countries
 
   selectedCountries: Country[] = [];
 
@@ -29,55 +34,25 @@ export class CountryComponent implements OnInit {
 
   statuses: any[] = [];
 
-  rowsPerPageOptions = [5, 10, 20];
-
   constructor(
     private countryService: CountryService,
     private messageService: MessageService,
-    private labelService: LabelService,
   ) {}
 
-  ngOnInit(): void {
-    this.countryService.getCountries().then(countries => {
-      this.countries = countries;
-    });
-    this.cols = [
-      { field: 'id', header: 'ID' },
-      { field: 'name', header: 'Name' },
-      { field: 'status', header: 'Status' },
-    ];
-
-    this.statuses = this.labelService.getDefaults();
+  handleSelectedCountriesChange(selectedCountries: Country[]): void {
+    this.selectedCountries = selectedCountries;
   }
 
-  confirmDelete(): void {
+  confirmDelete(itemName: string): void {
     this.deleteCountryDialog = false;
-    // TODO : Delete the country
-    // Find the index of the country in the array
-    const index = this.countries.findIndex(c => c.id === this.country.id);
-
-    // If the country exists in the array, remove it
-    if (index !== -1) {
-      this.countries.splice(index, 1);
-    }
 
     this.messageService.add({
       severity: 'success',
       summary: 'Successful',
-      detail: 'Country Deleted',
+      detail:  `${itemName} Deleted`,
       life: 3_000,
     });
     this.country = {};
-  }
-
-  editCountry(country: Country): void {
-    this.country = { ...country };
-    this.countryDialog = true;
-  }
-
-  deleteCountry(country: Country): void {
-    this.deleteCountryDialog = true;
-    this.country = { ...country };
   }
 
   confirmDeleteSelected(): void {
@@ -89,39 +64,27 @@ export class CountryComponent implements OnInit {
       detail: 'Countries Deleted',
       life: 3000,
     });
-    this.selectedCountries = [];
+    // TODO : Handle reset selected countries to empty
+    // this.selectedCountries = [];
   }
 
-  openNew(): void {
+  openNewCountryDialog() {
     this.country = {};
-    this.submitted = false;
-    this.countryDialog = true;
+    this.countryDialog.openDialog();
   }
 
-  hideDialog() {
-    this.countryDialog = false;
-    this.submitted = false;
+  openEditCountryDialog(country: Country): void {
+    this.country = country;
+    this.countryDialog.openDialog();
   }
 
-  saveProduct() {
-    this.submitted = true;
-    this.countryDialog = false;
-    this.country = {};
+  openDeleteCountryDialog(country: Country): void {
+    this.country = country;
+    this.deleteDialog.openDialog();
   }
+
 
   deleteSelectedCountries(): void {
     this.deleteCountriesDialog = true;
-  }
-
-  onGlobalFilter(table: Table, event: Event): void {
-    table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
-  }
-
-  getColor(countryStatus: number): string {
-    return this.labelService.getColor(countryStatus);
-  }
-
-  getLabel(countryStatus: number): string {
-    return this.labelService.getTag(countryStatus);
   }
 }

@@ -47,7 +47,7 @@ Thumbs.db
 # Angular `.gitignore` found at: https://raw.githubusercontent.com/angular/angular/main/.gitignore
 # -----------------------------------------------------------------------
 .DS_STORE
-./dist
+dist/
 /bazel-out
 /integration/bazel/bazel-*
 *.log

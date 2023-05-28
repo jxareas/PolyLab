@@ -18,9 +18,17 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from "primeng/dropdown";
 import { InputTextareaModule } from "primeng/inputtextarea";
+import { CountryDialogComponent } from './country/components/country-dialog/country-dialog.component';
+import { CountryListComponent } from './country/components/country-list/country-list.component';
+import {
+  MdsActionToolbarModule
+} from "../../../projects/mds-light/src/lib/components/action-toolbar/mds-action-toolbar.module";
+import {
+  MdsDeleteSingleModule
+} from "../../../projects/mds-light/src/lib/components/delete-single/mds-delete-single.module";
 
 @NgModule({
-  declarations: [CountryComponent, DepartmentComponent, MunicipalityComponent],
+  declarations: [CountryComponent, DepartmentComponent, MunicipalityComponent, CountryDialogComponent, CountryListComponent],
   imports: [
     CommonModule,
     LocationRoutingModule,
@@ -32,6 +40,8 @@ import { InputTextareaModule } from "primeng/inputtextarea";
     RippleModule,
     RatingModule,
     FormsModule,
+    MdsActionToolbarModule,
+    MdsDeleteSingleModule,
     RadioButtonModule,
     InputNumberModule,
     DialogModule,
