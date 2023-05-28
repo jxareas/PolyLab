@@ -118,9 +118,9 @@
               <span class="p-column-title">Status</span>
               <span
                 [class]="
-                  'product-badge status-' + getLabelColor(country.status)
+                  'product-badge status-' + getColor(country.status)
                 "
-                >{{ getLabelName(country.status) }}</span
+                >{{ getLabel(country.status) }}</span
               >
             </td>
             <td>
@@ -148,7 +148,7 @@
     <p-dialog
       [(visible)]="countryDialog"
       [style]="{ width: '450px' }"
-      header="Country Details"
+      header="Manage Countries"
       [contentStyle]="{'overflow':'visible'}"
       [modal]="true"
       class="p-fluid">
@@ -161,7 +161,7 @@
             id="name"
             [(ngModel)]="country.name"
             required
-            autofocus
+
             [ngClass]="{ 'ng-invalid ng-dirty': submitted && !country.name }" />
           <small class="ng-dirty ng-invalid" *ngIf="submitted && !country.name"
             >Name is required.</small
@@ -180,12 +180,12 @@
         <!--        TODO : Add Status DropDown-->
         <div class="field">
           <label>Status</label>
-          <p-dropdown [(ngModel)]="country.status" inputId="status" optionValue="label" [options]="statuses" placeholder="Select">
+          <p-dropdown [(ngModel)]="country.status" inputId="status" optionValue="value" [options]="statuses" placeholder="Select">
             <ng-template pTemplate="selectedItem">
-              <span *ngIf="country && country.status" [class]="'product-badge status-' + getLabelColor(country.status)">{{getLabelName(country.status)}}</span>
+              <span *ngIf="country && country.status" [class]="'product-badge status-' + getColor(country.status)">{{getLabel(country.status)}}</span>
             </ng-template>
             <ng-template let-option pTemplate="item">
-              <span [class]="'product-badge status-' + option.value">{{option.label}}</span>
+              <span [class]="'product-badge status-' + 'option.value'">{{option.label}}</span>
             </ng-template>
           </p-dropdown>
         </div>
