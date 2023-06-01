@@ -22,15 +22,8 @@ export class CountryComponent {
   deleteCountriesDialog = false;
 
   country: Country = {};
-  // TODO : Handle selected countries
 
   selectedCountries: Country[] = [];
-
-  submitted = false;
-
-  cols: any[] = [];
-
-  statuses: any[] = [];
 
   constructor(
     private countryService: CountryService,
@@ -58,7 +51,6 @@ export class CountryComponent {
         this.displayDeleteMessage(this.country.description);
         this.deleteDialog.closeDialog();
       });
-    this.country = {};
   }
 
   private displayDeleteMessage(itemName?: string): void {
@@ -94,12 +86,12 @@ export class CountryComponent {
 
   openNewCountryDialog() {
     this.country = {};
-    this.countryDialog.openDialog();
+    this.countryDialog.openDialog(this.country);
   }
 
   openEditCountryDialog(country: Country): void {
-    this.country = country;
-    this.countryDialog.openDialog();
+    this.country = { ...country };
+    this.countryDialog.openDialog(this.country);
   }
 
   openDeleteCountryDialog(country: Country): void {

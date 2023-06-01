@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LabelService } from '../../../../../../projects/mds-light/src/lib/service/labels/label.service';
 import { Country } from '../../model/country';
 import { CountryService } from '../../service/country.service';
-import { catchError, switchMap, throwError } from "rxjs";
-import { MessageService } from "primeng/api";
+import { catchError, switchMap, throwError } from 'rxjs';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'jx-country-dialog',
@@ -11,9 +11,10 @@ import { MessageService } from "primeng/api";
   styles: [],
 })
 export class CountryDialogComponent implements OnInit {
-  @Input({ required: true }) country: Country;
+  country: Country;
   countryDialog = false;
   submitted = false;
+  isEdit: boolean;
   statuses: any[] = [];
 
   constructor(
@@ -26,22 +27,49 @@ export class CountryDialogComponent implements OnInit {
     this.statuses = this.labelService.getDefaults();
   }
 
-  openDialog(): void {
+  openDialog(country: Country): void {
+    this.country = country;
     this.countryDialog = true;
+    const isCreation = this.country.countryId == null;
+    this.isEdit = !isCreation;
+    console.log(this.isEdit);
+  }
+
+  saveOrEditCountry(): void {
+    this.submitted = true;
+    // TODO: Implement saveCountry logic
+    if (this.isEdit) {
+      this.updateCountry();
+    } else this.saveCountry();
   }
 
   saveCountry(): void {
-    this.submitted = true;
-    // TODO: Implement saveCountry logic
     this.countryService
       .save(this.country)
       .pipe(
         switchMap(() => this.countryService.findAll()),
-        catchError((error) => {
-          alert(error.message)
+        catchError(error => {
           this.displayErrorMessage();
           return throwError(error);
-        })
+        }),
+      )
+      .subscribe(data => {
+        this.countryService.setCountryChange(data);
+        this.displaySuccessMessage(`Added ${this.country.description}`);
+        this.hideDialog();
+      });
+  }
+
+  updateCountry(): void {
+    this.submitted = true;
+    this.countryService
+      .update(<number>this.country.countryId, this.country)
+      .pipe(
+        switchMap(() => this.countryService.findAll()),
+        catchError(error => {
+          this.displayErrorMessage();
+          return throwError(error);
+        }),
       )
       .subscribe(data => {
         this.countryService.setCountryChange(data);

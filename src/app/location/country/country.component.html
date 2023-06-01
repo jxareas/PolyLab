@@ -6,15 +6,15 @@
         (newAction)="openNewCountryDialog()"
         (deleteAction)="deleteSelectedCountries()"
         (exportAction)="countryTable.exportCsv()"
-        [deleteDisabled]="selectedCountries?.length === 0" />
+        [deleteDisabled]="selectedCountries.length === 0" />
       <jx-country-list
         #countryTable
         (editCountryAction)="openEditCountryDialog($event)"
         (deleteCountryAction)="openDeleteCountryDialog($event)"
         (selectedCountriesChange)="handleSelectedCountriesChange($event)" />
     </div>
-    <jx-country-dialog #countryDialog [country]="country" />
-    <mds-delete-single [itemName]="country?.name || 'this country'"
+    <jx-country-dialog #countryDialog />
+    <mds-delete-single [itemName]="country.description || 'this country'"
                        (confirmAction)="confirmDelete()"
                        #deleteCountryDialog/>
 

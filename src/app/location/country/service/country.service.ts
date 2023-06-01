@@ -9,16 +9,16 @@ import { Subject } from "rxjs";
 })
 export class CountryService extends PersistentService<Country> {
 
-  private examChange = new Subject<Country[]>();
+  private countryChange = new Subject<Country[]>();
   constructor(protected override http: HttpClient) {
     super(http, `http://localhost:8081/v1/countries`);
   }
 
   setCountryChange(data: Country[]) {
-    this.examChange.next(data);
+    this.countryChange.next(data);
   }
 
   getCountryChange() {
-    return this.examChange.asObservable();
+    return this.countryChange.asObservable();
   }
 }
