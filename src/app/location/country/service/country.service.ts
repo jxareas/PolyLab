@@ -1,13 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Country } from '../model/country';
-import { countries } from "./countries";
+import { PersistentService } from "../../../../../projects/mds-light/src/lib/service/persistence/persistent.service";
+import { Subject } from "rxjs";
 
-@Injectable()
-export class CountryService {
-  constructor(private httpClient: HttpClient) {}
+@Injectable({
+  providedIn: 'root'
+})
+export class CountryService extends PersistentService<Country> {
 
-  getCountries(): Promise<Country[]> {
-    return Promise.resolve(countries);
+  private examChange = new Subject<Country[]>();
+  constructor(protected override http: HttpClient) {
+    super(http, `http://localhost:8081/v1/countries`);
+  }
+
+  setCountryChange(data: Country[]) {
+    this.examChange.next(data);
+  }
+
+  getCountryChange() {
+    return this.examChange.asObservable();
   }
 }

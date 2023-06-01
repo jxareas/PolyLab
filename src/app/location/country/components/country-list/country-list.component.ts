@@ -37,14 +37,21 @@ export class CountryListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.countryService.getCountries().then(countries => {
-      this.countries = countries;
-    });
+    this.countryService.getCountryChange().subscribe(() =>
+      this.fetchCountries()
+    );
+    this.fetchCountries();
     this.cols = [
       { field: 'id', header: 'ID' },
       { field: 'name', header: 'Name' },
       { field: 'status', header: 'Status' },
     ];
+  }
+
+  fetchCountries(): void {
+    this.countryService.findAll().subscribe(data => {
+      this.countries = data;
+    });
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

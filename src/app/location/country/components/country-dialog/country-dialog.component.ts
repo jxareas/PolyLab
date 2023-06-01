@@ -25,7 +25,7 @@ export class CountryDialogComponent implements OnInit {
 
   saveCountry(): void {
     this.submitted = true;
-    // TODO: Implement saveProduct logic
+    // TODO: Implement saveCountry logic
   }
 
   hideDialog(): void {
