@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { LabelService } from '../../../../../../projects/mds-light/src/lib/service/labels/label.service';
+import { LabelService } from 'mds-light';
 import { Country } from '../../model/country';
 
 @Component({

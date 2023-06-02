@@ -1,9 +1,7 @@
 import { Component, OnDestroy, Renderer2, ViewChild } from '@angular/core';
-import { LayoutService } from '../../../../projects/mds-light/src/lib/service/layout/layout.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
-import { MdsHeaderComponent } from '../../../../projects/mds-light/src/lib/components/header/mds-header.component';
-import { MdsDrawerComponent } from '../../../../projects/mds-light/src/lib/components/drawer/mds-drawer.component';
+import { MdsHeaderComponent, MdsDrawerComponent, LayoutService } from 'mds-light';
 
 @Component({
   selector: 'jx-layout',

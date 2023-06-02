@@ -7,7 +7,7 @@ import {
   MdsDrawerModule,
   MdsFooterModule,
   MdsHeaderModule,
-} from '../../../projects/mds-light/src/public-api';
+} from 'mds-light';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

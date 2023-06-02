@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IconService } from '../../../../projects/mds-light/src/lib/service/icons/icon.service';
+import { IconService } from 'mds-light';
 import { Router } from '@angular/router';
 
 @Component({

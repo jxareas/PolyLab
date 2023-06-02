@@ -1,6 +1,6 @@
 /* eslint-disable  @typescript-eslint/no-non-null-assertion */
 import { Component, Input } from '@angular/core';
-import { LayoutService } from '../../../service/layout/layout.service';
+import { LayoutService } from "../../service/layout/layout.service";
 
 @Component({
   selector: 'mds-configuration-drawer',

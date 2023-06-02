@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from "@angular/core";
 import { Country } from '../../model/country';
-import { LabelService } from '../../../../../../projects/mds-light/src/lib/service/labels/label.service';
+import { LabelService } from 'mds-light';
 import { CountryService } from '../../service/country.service';
 import { Table } from 'primeng/table';
 

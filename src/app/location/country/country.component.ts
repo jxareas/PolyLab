@@ -3,9 +3,7 @@ import { CountryService } from './service/country.service';
 import { MessageService } from 'primeng/api';
 import { Country } from './model/country';
 import { CountryDialogComponent } from "./components/country-dialog/country-dialog.component";
-import {
-  MdsDeleteSingleComponent
-} from "../../../../projects/mds-light/src/lib/components/delete-single/mds-delete-single.component";
+import { MdsDeleteSingleComponent } from "mds-light";
 
 @Component({
   selector: 'jx-country',
