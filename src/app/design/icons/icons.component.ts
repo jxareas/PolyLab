@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IconService } from 'mds-light';
 import { Router } from '@angular/router';
+import { IconService } from "mds-light";
 
 @Component({
   selector: 'jx-icons',

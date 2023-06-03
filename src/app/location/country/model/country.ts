@@ -1,6 +1,6 @@
 export interface Country {
-  id?: number;
-  name?: string;
+  countryId?: number;
   description?: string;
+  code?: string;
   status?: number;
 }

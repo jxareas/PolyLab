@@ -1,0 +1,93 @@
+<p-table
+  #dt
+  [value]="items"
+  [columns]="cols"
+  responsiveLayout="scroll"
+  [rows]="10"
+  [globalFilterFields]="['description', 'status']"
+  [paginator]="true"
+  [rowsPerPageOptions]="rowsPerPageOptions"
+  [showCurrentPageReport]="true"
+  exportFilename="professions"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  [(selection)]="selectedItems"
+  selectionMode="multiple"
+  [rowHover]="true"
+  dataKey="professionId">
+  <ng-template pTemplate="caption">
+    <div
+      class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+      <h5 class="m-0">Manage Professions</h5>
+      <span class="block mt-2 md:mt-0 p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input
+          pInputText
+          type="text"
+          (input)="onGlobalFilter(dt, $event)"
+          placeholder="Search..."
+          class="w-full sm:w-auto" />
+      </span>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 3rem">
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+      <th pSortableColumn="professionId">ID <p-sortIcon field="professionId"></p-sortIcon></th>
+      <th pSortableColumn="description">
+        Description <p-sortIcon field="description"></p-sortIcon>
+      </th>
+      <th pSortableColumn="status">
+        Status <p-sortIcon field="status"></p-sortIcon>
+      </th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-profession>
+    <tr>
+      <td>
+        <p-tableCheckbox [value]="profession"></p-tableCheckbox>
+      </td>
+      <td>
+        <span class="p-column-title">ID</span>
+        {{ profession.professionId }}
+      </td>
+      <td>
+        <span class="p-column-title">Description</span>
+        {{ profession.description }}
+      </td>
+      <td style="width: 14%; min-width: 10rem">
+        <span class="p-column-title">Status</span>
+        <span [class]="'product-badge status-' + colorOf(profession.status)">{{
+          labelOf(profession.status)
+          }}</span>
+      </td>
+      <td>
+        <div class="flex">
+          <button
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-success mr-2"
+            (click)="editItemAction.emit(profession)"></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-warning"
+            (click)="deleteItemAction.emit(profession)"></button>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td class="text-center" [attr.colspan]="100">
+        <div>
+          <p-message severity="warn" text="No profession data available"></p-message>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

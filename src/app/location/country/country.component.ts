@@ -20,7 +20,6 @@ export class CountryComponent {
 
   deleteCountriesDialog = false;
 
-
   country: Country = {};
   // TODO : Handle selected countries
 

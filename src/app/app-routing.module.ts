@@ -38,6 +38,11 @@ const routes: Routes = [
           import('./design/design.module').then(m => m.DesignModule),
       },
       {
+        path : 'category',
+        loadChildren: () =>
+          import('./categories/categories.module').then(m => m.CategoriesModule)
+      },
+      {
         path: 'documentation',
         loadChildren: () =>
           import('./project/documentation/documentation.module').then(

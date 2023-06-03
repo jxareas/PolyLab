@@ -5,9 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { PanelModule } from './panel/panel.module';
 import { AppRoutingModule } from './app-routing.module';
-import { CountryService } from './location/country/service/country.service';
-import { MessageService } from 'primeng/api';
 import { IconService, LabelService } from "mds-light";
+import { MessageService } from "primeng/api";
+import { CountryService } from "./location/country/service/country.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +16,7 @@ import { IconService, LabelService } from "mds-light";
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule,
-    PanelModule,
+    PanelModule
   ],
   providers: [CountryService, MessageService, IconService, LabelService],
   bootstrap: [AppComponent],

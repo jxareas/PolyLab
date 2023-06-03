@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { LabelState } from "./state/label-state";
+import { LabelState } from './state/label-state';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class LabelService {
   getDefaults(): LabelState[] {
     return [
@@ -15,20 +17,19 @@ export class LabelService {
     return status === 1
       ? 'instock'
       : status === 2
-        ? 'outofstock'
-        : status === 3
-          ? 'lowstock'
-          : 'instock';
+      ? 'outofstock'
+      : status === 3
+      ? 'lowstock'
+      : 'instock';
   }
 
   getTag(status: number): string {
     return status === 1
       ? 'enabled'
       : status === 3
-        ? 'modified'
-        : status === 2
-          ? 'disabled'
-          : 'unknown';
+      ? 'modified'
+      : status === 2
+      ? 'disabled'
+      : 'unknown';
   }
-
 }

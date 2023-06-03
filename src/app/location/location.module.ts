@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { LocationRoutingModule } from './location-routing.module';
 import { CountryComponent } from './country/country.component';
 import { DepartmentComponent } from './department/department.component';
@@ -19,16 +18,15 @@ import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from "primeng/dropdown";
 import { InputTextareaModule } from "primeng/inputtextarea";
 import { CountryDialogComponent } from './country/components/country-dialog/country-dialog.component';
-import { CountryListComponent } from './country/components/country-list/country-list.component';
-import {
-  MdsActionToolbarModule
-} from "../../../projects/mds-light/src/lib/components/action-toolbar/mds-action-toolbar.module";
-import {
-  MdsDeleteSingleModule
-} from "../../../projects/mds-light/src/lib/components/delete-single/mds-delete-single.module";
+import { CountryTableComponent } from './country/components/country-table/country-table.component';
+import { MdsActionToolbarModule, MdsDeleteSingleModule } from "mds-light";
+import { DepartmentTableComponent } from './department/components/department-table/department-table.component';
+import { DepartmentDialogComponent } from './department/components/department-dialog/department-dialog.component';
+import { MunicipalityTableComponent } from './municipality/components/municipality-table/municipality-table.component';
+import { MunicipalityDialogComponent } from './municipality/components/municipality-dialog/municipality-dialog.component';
 
 @NgModule({
-  declarations: [CountryComponent, DepartmentComponent, MunicipalityComponent, CountryDialogComponent, CountryListComponent],
+  declarations: [CountryComponent, DepartmentComponent, MunicipalityComponent, CountryDialogComponent, CountryTableComponent, DepartmentTableComponent, DepartmentDialogComponent, MunicipalityTableComponent, MunicipalityDialogComponent],
   imports: [
     CommonModule,
     LocationRoutingModule,
