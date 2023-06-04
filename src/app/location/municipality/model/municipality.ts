@@ -1,4 +1,4 @@
-export interface MunicipalityDto {
+export interface Municipality {
   municipalityId?: number;
   departmentId?: number;
   description?: string;

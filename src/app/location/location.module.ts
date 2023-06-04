@@ -24,6 +24,7 @@ import { DepartmentTableComponent } from './department/components/department-tab
 import { DepartmentDialogComponent } from './department/components/department-dialog/department-dialog.component';
 import { MunicipalityTableComponent } from './municipality/components/municipality-table/municipality-table.component';
 import { MunicipalityDialogComponent } from './municipality/components/municipality-dialog/municipality-dialog.component';
+import { MessageModule } from "primeng/message";
 
 @NgModule({
   declarations: [CountryComponent, DepartmentComponent, MunicipalityComponent, CountryDialogComponent, CountryTableComponent, DepartmentTableComponent, DepartmentDialogComponent, MunicipalityTableComponent, MunicipalityDialogComponent],
@@ -44,7 +45,8 @@ import { MunicipalityDialogComponent } from './municipality/components/municipal
     InputNumberModule,
     DialogModule,
     DropdownModule,
-    InputTextareaModule
+    InputTextareaModule,
+    MessageModule
   ]
 })
 export class LocationModule {}

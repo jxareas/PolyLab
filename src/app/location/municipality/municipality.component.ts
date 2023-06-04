@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './municipality.component.html',
   styleUrls: ['./municipality.component.sass']
 })
-export class MunicipalityComponent {
+export class MunicipalityComponent  {
 
 }

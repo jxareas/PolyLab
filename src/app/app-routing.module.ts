@@ -23,7 +23,7 @@ const routes: Routes = [
           import('./records/records.module').then(m => m.RecordsModule),
       },
       {
-        path: 'exam',
+        path: 'exams',
         loadChildren: () =>
           import('./exams/exams.module').then(m => m.ExamsModule),
       },

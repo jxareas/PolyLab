@@ -58,17 +58,17 @@ export const drawerMenu = [
           {
             label: 'Exams',
             icon: 'pi pi-fw pi-file-o',
-            routerLink: ['/exam/exam'],
+            routerLink: ['/exams/exam'],
           },
           {
             label: 'Exam Profiles',
             icon: 'pi pi-fw pi-list',
-            routerLink: ['/exam/exam-profile'],
+            routerLink: ['/exams/exam-profile'],
           },
           {
             label: 'Normal Values',
             icon: 'pi pi-pencil',
-            routerLink: ['/exam/normal-values'],
+            routerLink: ['/exams/normal-values'],
           },
         ],
       },

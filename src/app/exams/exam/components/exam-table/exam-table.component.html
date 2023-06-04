@@ -1,0 +1,90 @@
+<p-table #dt
+         [value]="items"
+         [columns]="cols"
+         responsiveLayout="scroll"
+         [rows]="10"
+         [globalFilterFields]="['examId', 'description', 'shortDescription', 'lisCode', 'count']"
+         [paginator]="true"
+         [rowsPerPageOptions]="rowsPerPageOptions"
+         [showCurrentPageReport]="true"
+         exportFilename="exams"
+         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+         [(selection)]="selectedItems"
+         selectionMode="multiple"
+         [rowHover]="true"
+         dataKey="examId">
+  <ng-template pTemplate="caption">
+    <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+      <h5 class="m-0">Manage Exams</h5>
+      <span class="block mt-2 md:mt-0 p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input pInputText type="text" (input)="onGlobalFilter(dt, $event)" placeholder="Search..." class="w-full sm:w-auto" />
+      </span>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th style="width: 3rem">
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+      <th pSortableColumn="examId">ID <p-sortIcon field="examId"></p-sortIcon></th>
+      <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
+      <th pSortableColumn="shortDescription">Short Description <p-sortIcon field="shortDescription"></p-sortIcon></th>
+      <th pSortableColumn="lisCode">LIS Code <p-sortIcon field="lisCode"></p-sortIcon></th>
+      <th pSortableColumn="count">Count <p-sortIcon field="count"></p-sortIcon></th>
+      <th pSortableColumn="confidential">Confidential <p-sortIcon field="confidential"></p-sortIcon></th>
+      <th pSortableColumn="calculated">Calculated <p-sortIcon field="calculated"></p-sortIcon></th>
+      <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon></th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-exam>
+    <tr>
+      <td>
+        <p-tableCheckbox [value]="exam"></p-tableCheckbox>
+      </td>
+      <td>
+        <span class="p-column-title">ID</span>
+        {{ exam.examId }}
+      </td>
+      <td>
+        <span class="p-column-title">Description</span>
+        {{ exam.description }}
+      </td>
+      <td>
+        <span class="p-column-title">Short Description</span>
+        {{ exam.shortDescription }}
+      </td>
+      <td>
+        <span class="p-column-title">LIS Code</span>
+        {{ exam.lisCode }}
+      </td>
+      <td>
+        <span class="p-column-title">Count</span>
+        {{ exam.count }}
+      </td>
+      <td>
+        <span class="p-column-title">Confidential</span>
+        {{ exam.confidential }}
+      </td>
+      <td>
+        <span class="p-column-title">Calculated</span>
+        {{ exam.calculated }}
+      </td>
+      <td>
+        <span class="p-column-title">Status</span>
+        {{ exam.status }}
+      </td>
+      <td></td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td class="text-center" [attr.colspan]="100">
+        <div>
+          <p-message severity="warn" text="No exam data available"></p-message>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
