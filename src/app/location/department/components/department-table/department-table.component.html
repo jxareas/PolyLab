@@ -1,0 +1,78 @@
+<p-table
+  #dt
+  [value]="items"
+  [columns]="cols"
+  responsiveLayout="scroll"
+  [rows]="10"
+  [globalFilterFields]="['description', 'status']"
+  [paginator]="true"
+  [rowsPerPageOptions]="rowsPerPageOptions"
+  [showCurrentPageReport]="true"
+  exportFilename="departments"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  [(selection)]="selectedItems"
+  selectionMode="multiple"
+  [rowHover]="true"
+  dataKey="departmentId">
+  <ng-template pTemplate="caption">
+    <div
+      class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+      <h5 class="m-0">Manage Departments</h5>
+      <span class="block mt-2 md:mt-0 p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input
+          pInputText
+          type="text"
+          (input)="onGlobalFilter(dt, $event)"
+          placeholder="Search..."
+          class="w-full sm:w-auto" />
+      </span>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 3rem">
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+      <th pSortableColumn="departmentId">ID <p-sortIcon field="departmentId"></p-sortIcon></th>
+      <th pSortableColumn="description">
+        Description <p-sortIcon field="description"></p-sortIcon>
+      </th>
+      <th pSortableColumn="status">
+        Status <p-sortIcon field="status"></p-sortIcon>
+      </th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-department>
+    <tr>
+      <td>
+        <p-tableCheckbox [value]="department"></p-tableCheckbox>
+      </td>
+      <td>
+        <span class="p-column-title">ID</span>
+        {{ department.departmentId }}
+      </td>
+      <td>
+        <span class="p-column-title">Description</span>
+        {{ department.description }}
+      </td>
+      <td style="width: 14%; min-width: 10rem">
+        <span class="p-column-title">Status</span>
+        <span [class]="'product-badge status-' + colorOf(department.status)">{{
+          labelOf(department.status)
+          }}</span>
+      </td>
+      <td></td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td class="text-center" [attr.colspan]="100">
+        <div>
+          <p-message severity="warn" text="No department data available"></p-message>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

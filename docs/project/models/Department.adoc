@@ -1,0 +1,43 @@
+= Department
+
+== DTO
+[source, typescript]
+----
+export interface Department {
+  departmentId?: number;
+  countryId?: number;
+  description?: string;
+  status?: number;
+}
+----
+
+
+
+== Persistence Object
+[source,java]
+----
+public class Department  {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer departmentId;
+
+    private Integer countryId;
+
+    private String description;
+
+    private Integer status;
+}
+----
+
+== DDL
+[source,sql]
+----
+CREATE TABLE `tbl_cat_Departamento` (
+`IdDepartamento` int NOT NULL,
+`IdPais` int NOT NULL,
+`Descripcion` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+`Estado` int NOT NULL,
+PRIMARY KEY (`IdDepartamento`)
+)
+----

@@ -1,32 +1,32 @@
 <p-table
   #dt
-  [value]="countries"
+  [value]="items"
   [columns]="cols"
   responsiveLayout="scroll"
   [rows]="10"
-  [globalFilterFields]="['name', 'description', 'status']"
+  [globalFilterFields]="['name', 'description']"
   [paginator]="true"
   [rowsPerPageOptions]="rowsPerPageOptions"
   [showCurrentPageReport]="true"
-  exportFilename="countries"
+  exportFilename="genders"
   currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-  [(selection)]="selectedCountries"
+  [(selection)]="selectedItems"
   selectionMode="multiple"
   [rowHover]="true"
   dataKey="id">
   <ng-template pTemplate="caption">
     <div
       class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
-      <h5 class="m-0">Manage Countries</h5>
+      <h5 class="m-0">Manage Genders</h5>
       <span class="block mt-2 md:mt-0 p-input-icon-left">
-              <i class="pi pi-search"></i>
-              <input
-                pInputText
-                type="text"
-                (input)="onGlobalFilter(dt, $event)"
-                placeholder="Search..."
-                class="w-full sm:w-auto" />
-            </span>
+        <i class="pi pi-search"></i>
+        <input
+          pInputText
+          type="text"
+          (input)="onGlobalFilter(dt, $event)"
+          placeholder="Search..."
+          class="w-full sm:w-auto" />
+      </span>
     </div>
   </ng-template>
   <ng-template pTemplate="header">
@@ -34,12 +34,7 @@
       <th style="width: 3rem">
         <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
       </th>
-      <th pSortableColumn="id">
-        ID <p-sortIcon field="id"></p-sortIcon>
-      </th>
-      <th pSortableColumn="name">
-        Name <p-sortIcon field="name"></p-sortIcon>
-      </th>
+      <th pSortableColumn="id">ID <p-sortIcon field="id"></p-sortIcon></th>
       <th pSortableColumn="description">
         Description <p-sortIcon field="description"></p-sortIcon>
       </th>
@@ -49,29 +44,24 @@
       <th></th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-country>
+  <ng-template pTemplate="body" let-gender>
     <tr>
       <td>
-        <p-tableCheckbox [value]="country"></p-tableCheckbox>
+        <p-tableCheckbox [value]="gender"></p-tableCheckbox>
       </td>
       <td>
         <span class="p-column-title">Code</span>
-        {{ country.id }}
-      </td>
-      <td>
-        <span class="p-column-title">Name</span>
-        {{ country.name }}
+        {{ gender.genderId }}
       </td>
       <td>
         <span class="p-column-title">Description</span>
-        {{ country.description }}
+        {{ gender.description }}
       </td>
       <td style="width: 14%; min-width: 10rem">
         <span class="p-column-title">Status</span>
-        <span
-          [class]="'product-badge status-' + getColor(country.status)"
-        >{{ getLabel(country.status) }}</span
-        >
+        <span [class]="'product-badge status-' + colorOf(gender.status)">{{
+          labelOf(gender.status)
+        }}</span>
       </td>
       <td>
         <div class="flex">
@@ -80,13 +70,22 @@
             pRipple
             icon="pi pi-pencil"
             class="p-button-rounded p-button-success mr-2"
-            (click)="editCountry(country)"></button>
+            (click)="editItemAction.emit(gender)"></button>
           <button
             pButton
             pRipple
             icon="pi pi-trash"
             class="p-button-rounded p-button-warning"
-            (click)="deleteCountry(country)"></button>
+            (click)="deleteItemAction.emit(gender)"></button>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td class="text-center" [attr.colspan]="100">
+        <div>
+          <p-message severity="warn" text="No gender data available"></p-message>
         </div>
       </td>
     </tr>

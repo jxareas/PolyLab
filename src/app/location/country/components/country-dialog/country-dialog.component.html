@@ -12,10 +12,10 @@
         type="text"
         pInputText
         id="name"
-        [(ngModel)]="country.name"
+        [(ngModel)]="country.description"
         required
-        [ngClass]="{ 'ng-invalid ng-dirty': submitted && !country.name }" />
-      <small class="ng-dirty ng-invalid" *ngIf="submitted && !country.name"
+        [ngClass]="{ 'ng-invalid ng-dirty': submitted && !country.description }" />
+      <small class="ng-dirty ng-invalid" *ngIf="submitted && !country.description"
       >Name is required.</small
       >
     </div>

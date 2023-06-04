@@ -23,7 +23,7 @@ const routes: Routes = [
           import('./records/records.module').then(m => m.RecordsModule),
       },
       {
-        path: 'exam',
+        path: 'exams',
         loadChildren: () =>
           import('./exams/exams.module').then(m => m.ExamsModule),
       },
@@ -36,6 +36,11 @@ const routes: Routes = [
         path: 'design',
         loadChildren: () =>
           import('./design/design.module').then(m => m.DesignModule),
+      },
+      {
+        path : 'category',
+        loadChildren: () =>
+          import('./categories/categories.module').then(m => m.CategoriesModule)
       },
       {
         path: 'documentation',

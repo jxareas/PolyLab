@@ -5,11 +5,11 @@ import { CountryService } from '../../service/country.service';
 import { Table } from 'primeng/table';
 
 @Component({
-  selector: 'jx-country-list',
-  templateUrl: './country-list.component.html',
+  selector: 'jx-country-table',
+  templateUrl: './country-table.component.html',
   styles: [],
 })
-export class CountryListComponent implements OnInit {
+export class CountryTableComponent implements OnInit {
   @ViewChild('dt') dt: Table;
 
   countries: Country[] = [];
@@ -67,7 +67,6 @@ export class CountryListComponent implements OnInit {
 
   onGlobalFilter(table: Table, event: Event): void {
     table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
-    //TODO : Remove this edit country call
   }
 
 

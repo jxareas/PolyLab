@@ -9,9 +9,8 @@ import { BannerComponent } from './banner/banner.component';
 import { SolutionsComponent } from './solutions/solutions.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { CtaComponent } from './cta/cta.component';
-import { MdsOfferModule } from '../../../projects/mds-light/src/public-api';
+import { MdsOfferModule, MdsPageHeaderLocatorModule } from "mds-light";
 import { ExclusiveOfferComponent } from './exclusive-offer/exclusive-offer.component';
-import { MdsPageHeaderLocatorModule } from '../../../projects/mds-light/src/lib/components/page-header-locator/mds-page-header-locator.module';
 
 @NgModule({
   declarations: [

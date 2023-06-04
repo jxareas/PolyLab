@@ -1,0 +1,85 @@
+<p-table #dt
+         [value]="items"
+         [columns]="cols"
+         responsiveLayout="scroll"
+         [rows]="10"
+         [globalFilterFields]="['doctorId', 'firstName', 'lastName', 'email']"
+         [paginator]="true"
+         [rowsPerPageOptions]="rowsPerPageOptions"
+         [showCurrentPageReport]="true"
+         exportFilename="doctors"
+         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+         [(selection)]="selectedItems"
+         selectionMode="multiple"
+         [rowHover]="true"
+         dataKey="doctorId">
+  <ng-template pTemplate="caption">
+    <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+      <h5 class="m-0">Manage Doctors</h5>
+      <span class="block mt-2 md:mt-0 p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input pInputText type="text" (input)="onGlobalFilter(dt, $event)" placeholder="Search..." class="w-full sm:w-auto" />
+      </span>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th style="width: 3rem">
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+      <th pSortableColumn="doctorId">ID <p-sortIcon field="doctorId"></p-sortIcon></th>
+      <th pSortableColumn="firstName">First Name <p-sortIcon field="firstName"></p-sortIcon></th>
+      <th pSortableColumn="middleName">Middle Name <p-sortIcon field="middleName"></p-sortIcon></th>
+      <th pSortableColumn="lastName">Last Name <p-sortIcon field="lastName"></p-sortIcon></th>
+      <th pSortableColumn="email">Email <p-sortIcon field="email"></p-sortIcon></th>
+      <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon></th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-doctor>
+    <tr>
+      <td>
+        <p-tableCheckbox [value]="doctor"></p-tableCheckbox>
+      </td>
+      <td>
+        <span class="p-column-title">ID</span>
+        {{ doctor.doctorId }}
+      </td>
+      <td>
+        <span class="p-column-title">First Name</span>
+        {{ doctor.firstName }}
+      </td>
+      <td>
+        <span class="p-column-title">Middle Name</span>
+        {{ doctor.middleName }}
+      </td>
+      <td>
+        <span class="p-column-title">Last Name</span>
+        {{ doctor.lastName }}
+      </td>
+      <td>
+        <span class="p-column-title">Email</span>
+        {{ doctor.email }}
+      </td>
+      <td style="width: 14%; min-width: 10rem">
+        <span class="p-column-title">Status</span>
+        <span [class]="'product-badge status-' + colorOf(doctor.status)">{{ labelOf(doctor.status) }}</span>
+      </td>
+      <td>
+        <div class="flex">
+          <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editItemAction.emit(doctor)"></button>
+          <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteItemAction.emit(doctor)"></button>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td class="text-center" [attr.colspan]="100">
+        <div>
+          <p-message severity="warn" text="No personal data available"></p-message>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
