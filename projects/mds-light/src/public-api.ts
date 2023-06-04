@@ -24,5 +24,6 @@ export * from './lib/components/exclusive-offer/mds-offer.module';
 export * from './lib/components/page-header-locator/mds-page-header-locator.module'
 export * from './lib/components/page-header-locator/mds-page-header-locator.component'
 export * from './lib/service/layout/layout.service'
+export * from './lib/service/persistence/persistent.service'
 export * from './lib/service/icons/icon.service'
 export * from './lib/service/labels/label.service'
