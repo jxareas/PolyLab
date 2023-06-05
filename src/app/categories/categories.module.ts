@@ -17,12 +17,15 @@ import { RippleModule } from 'primeng/ripple';
 import { SharedModule } from 'primeng/api';
 import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
-import { MdsActionToolbarModule } from 'mds-light';
+import { MdsActionToolbarModule, MdsDeleteSingleModule } from "mds-light";
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ReligionService } from './religion/service/religion.service';
-import { ProfessionService } from "./profession/service/profession.service";
-import { GenderService } from "./gender/service/gender.service";
+import { ProfessionService } from './profession/service/profession.service';
+import { GenderService } from './gender/service/gender.service';
+import { DialogModule } from 'primeng/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -42,12 +45,16 @@ import { GenderService } from "./gender/service/gender.service";
     MdsActionToolbarModule,
     ButtonModule,
     InputTextModule,
+    DialogModule,
+    ReactiveFormsModule,
+    DropdownModule,
     RippleModule,
     SharedModule,
     TableModule,
     ToastModule,
     MessagesModule,
     MessageModule,
+    MdsDeleteSingleModule
   ],
   providers: [ReligionService, ProfessionService, GenderService],
 })

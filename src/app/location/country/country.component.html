@@ -15,7 +15,7 @@
     <jx-country-dialog #countryDialog [country]="country" />
     <mds-delete-single
       [itemName]="country.description || 'this country'"
-      (confirmDeleteAction)="confirmDelete(); deleteCountryDialog.closeDialog()"
+      (confirmDeleteAction)="confirmDelete();"
       #deleteCountryDialog />
 
     <!--        TODO: SEPARATE THE DELETE ALL SELECTED COUNTRIES DIALOG -->

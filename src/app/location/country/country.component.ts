@@ -16,21 +16,10 @@ export class CountryComponent {
   @ViewChild('countryDialog') countryDialog: CountryDialogComponent;
   @ViewChild('deleteCountryDialog') deleteDialog: MdsDeleteSingleComponent;
 
-
   deleteCountryDialog = false;
-
   deleteCountriesDialog = false;
-
   country: Country = {};
-  // TODO : Handle selected countries
-
   selectedCountries: Country[] = [];
-
-  submitted = false;
-
-  cols: any[] = [];
-
-  statuses: any[] = [];
 
   constructor(
     private countryService: CountryService,
@@ -108,8 +97,6 @@ export class CountryComponent {
     this.country = country;
     this.deleteDialog.openDialog();
   }
-
-
   deleteSelectedCountries(): void {
     this.deleteCountriesDialog = true;
   }

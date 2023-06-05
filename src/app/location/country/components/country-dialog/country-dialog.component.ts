@@ -13,7 +13,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { AddOrEditCountryForm } from './viewmodel/add-or-edit-country-form';
+import { AddOrEditCountryForm } from './model/add-or-edit-country-form';
 import { catchError, switchMap, throwError } from 'rxjs';
 import { CountryService } from '../../service/country.service';
 import { MessageService } from 'primeng/api';
@@ -42,16 +42,15 @@ export class CountryDialogComponent implements OnInit, OnChanges {
     this.statuses = this.labelService.getDefaults();
     this.countryForm = new FormGroup<AddOrEditCountryForm>({
       countryId: new FormControl<number | null>(null),
-      description: new FormControl<string>('', [Validators.required]),
+      description: new FormControl<string>('', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
       status: new FormControl<number>(1, { nonNullable: true }),
     });
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    this.countryForm.reset()
     if (changes['country'] && this.isEditMode) {
       this.populateForm();
-    } else  {
-      this.countryForm.reset()
     }
   }
 
@@ -125,13 +124,6 @@ export class CountryDialogComponent implements OnInit, OnChanges {
       detail: message,
       life: 3000,
     });
-  }
-
-  cancel() {
-    // Reset the form and close the dialog
-    this.countryForm.reset();
-    // Close the dialog here (you need to implement your own logic for that)
-    this.countryDialog = false;
   }
 
   openDialog(): void {

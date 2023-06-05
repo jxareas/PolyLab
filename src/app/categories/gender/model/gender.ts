@@ -1,4 +1,4 @@
 export interface Gender {
-  genderId?: string;
+  genderId?: number;
   description?: string;
 }

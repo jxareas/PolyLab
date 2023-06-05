@@ -1,1 +1,18 @@
-<p>gender-dialog works!</p>
+<p-dialog [(visible)]="genderDialog" (keyup.enter)="saveOrEditGender()" [formGroup]="genderForm" [style]="{ width: '450px' }" header="Manage Genders" [contentStyle]="{ overflow: 'visible' }" [modal]="true" class="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="field">
+      <label for="description">Description</label>
+      <input autofocus type="text" pInputText id="description" formControlName="description" [ngClass]="{ 'ng-invalid ng-dirty': submitted && genderForm.controls['description'].invalid }" />
+      <small class="p-error" *ngIf="genderForm.controls['description'].hasError('required') && genderForm.controls['description'].touched">Description is required.</small>
+      <small class="p-error" *ngIf="genderForm.controls['description'].hasError('minlength') && genderForm.controls['description'].touched">Minimum length is 3 characters.</small>
+      <small class="p-error" *ngIf="genderForm.controls['description'].hasError('maxlength') && genderForm.controls['description'].touched">Maximum length is 10 characters.</small>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text p-button-danger" (click)="hideDialog()"></button>
+    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text p-button-success"
+            [disabled]="genderForm.invalid || genderForm.pristine" (click)="saveOrEditGender()">
+    </button>
+  </ng-template>
+</p-dialog>
