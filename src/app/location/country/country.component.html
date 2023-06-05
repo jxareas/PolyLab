@@ -6,12 +6,17 @@
         (newAction)="openNewCountryDialog()"
         (deleteAction)="deleteSelectedCountries()"
         [deleteDisabled]="selectedCountries.length === 0" />
-      <jx-country-table #countryTable />
+      <jx-country-table
+        #countryTable
+        (editItemAction)="openEditCountryDialog($event)"
+        (deleteItemAction)="openDeleteCountryDialog($event)"
+      />
     </div>
     <jx-country-dialog #countryDialog [country]="country" />
-    <mds-delete-single [itemName]="country.description || 'this country'"
-                       (confirmAction)="confirmDelete($event); deleteCountryDialog.closeDialog()"
-                       #deleteCountryDialog/>
+    <mds-delete-single
+      [itemName]="country.description || 'this country'"
+      (confirmDeleteAction)="confirmDelete(); deleteCountryDialog.closeDialog()"
+      #deleteCountryDialog />
 
     <!--        TODO: SEPARATE THE DELETE ALL SELECTED COUNTRIES DIALOG -->
     <p-dialog

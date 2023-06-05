@@ -11,7 +11,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
 import { RatingModule } from 'primeng/rating';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DialogModule } from 'primeng/dialog';
@@ -60,6 +60,7 @@ import { DepartmentService } from "./department/service/department.service";
     DropdownModule,
     InputTextareaModule,
     MessageModule,
+    ReactiveFormsModule
   ],
   providers: [CountryService, MunicipalityService, DepartmentService],
 })
