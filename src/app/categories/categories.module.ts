@@ -11,16 +11,18 @@ import { ProfessionDialogComponent } from './profession/components/profession-di
 import { ProfessionTableComponent } from './profession/components/profession-table/profession-table.component';
 import { ReligionTableComponent } from './religion/components/religion-table/religion-table.component';
 import { ReligionDialogComponent } from './religion/components/religion-dialog/religion-dialog.component';
-import { ButtonModule } from "primeng/button";
-import { InputTextModule } from "primeng/inputtext";
-import { RippleModule } from "primeng/ripple";
-import { SharedModule } from "primeng/api";
-import { TableModule } from "primeng/table";
-import { ToastModule } from "primeng/toast";
-import { MdsActionToolbarModule } from "mds-light";
-import { MessagesModule } from "primeng/messages";
-import { MessageModule } from "primeng/message";
-
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { RippleModule } from 'primeng/ripple';
+import { SharedModule } from 'primeng/api';
+import { TableModule } from 'primeng/table';
+import { ToastModule } from 'primeng/toast';
+import { MdsActionToolbarModule } from 'mds-light';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { ReligionService } from './religion/service/religion.service';
+import { ProfessionService } from "./profession/service/profession.service";
+import { GenderService } from "./gender/service/gender.service";
 
 @NgModule({
   declarations: [
@@ -32,7 +34,7 @@ import { MessageModule } from "primeng/message";
     ProfessionDialogComponent,
     ProfessionTableComponent,
     ReligionTableComponent,
-    ReligionDialogComponent
+    ReligionDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -45,7 +47,8 @@ import { MessageModule } from "primeng/message";
     TableModule,
     ToastModule,
     MessagesModule,
-    MessageModule
-  ]
+    MessageModule,
+  ],
+  providers: [ReligionService, ProfessionService, GenderService],
 })
-export class CategoriesModule { }
+export class CategoriesModule {}

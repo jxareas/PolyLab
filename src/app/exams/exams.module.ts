@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ExamsRoutingModule } from './exams-routing.module';
 import { NormalValuesComponent } from './normal-values/normal-values.component';
 import { ExamProfilesComponent } from './exam-profiles/exam-profiles.component';
@@ -16,7 +15,10 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
 import { SharedModule } from 'primeng/api';
-import { MessageModule } from "primeng/message";
+import { MessageModule } from 'primeng/message';
+import { ExamService } from './exam/service/exam.service';
+import { NormalValuesService } from './normal-values/service/normal-values.service';
+import { ExamProfileService } from './exam-profiles/service/exam-profile.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { MessageModule } from "primeng/message";
     InputTextModule,
     RippleModule,
     SharedModule,
-    MessageModule
+    MessageModule,
   ],
+  providers: [ExamService, ExamProfileService, NormalValuesService],
 })
 export class ExamsModule {}

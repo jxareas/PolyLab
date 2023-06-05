@@ -1,6 +1,6 @@
 <p-table
   #dt
-  [value]="countries"
+  [value]="items"
   [columns]="cols"
   responsiveLayout="scroll"
   [rows]="10"
@@ -10,7 +10,7 @@
   [showCurrentPageReport]="true"
   exportFilename="countries"
   currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-  [(selection)]="selectedCountries"
+  [(selection)]="selectedItems"
   selectionMode="multiple"
   [rowHover]="true"
   dataKey="id">
@@ -62,8 +62,8 @@
       <td style="width: 14%; min-width: 10rem">
         <span class="p-column-title">Status</span>
         <span
-          [class]="'product-badge status-' + getColor(country.status)"
-        >{{ getLabel(country.status) }}</span
+          [class]="'product-badge status-' + colorOf(country.status)"
+        >{{ labelOf(country.status) }}</span
         >
       </td>
       <td>
@@ -73,13 +73,13 @@
             pRipple
             icon="pi pi-pencil"
             class="p-button-rounded p-button-success mr-2"
-            (click)="editCountry(country)"></button>
+            (click)="editItemAction.emit(country)"></button>
           <button
             pButton
             pRipple
             icon="pi pi-trash"
             class="p-button-rounded p-button-warning"
-            (click)="deleteCountry(country)"></button>
+            (click)="deleteItemAction.emit(country)"></button>
         </div>
       </td>
     </tr>

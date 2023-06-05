@@ -20,7 +20,7 @@ export class LabelService {
       ? 'outofstock'
       : status === 3
       ? 'lowstock'
-      : 'instock';
+      : 'lowstock';
   }
 
   getTag(status: number): string {

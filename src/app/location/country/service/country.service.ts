@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Country } from '../model/country';
-import { countries } from "./countries";
+import { PersistentService } from "mds-light";
 
 @Injectable()
-export class CountryService {
-  constructor(private httpClient: HttpClient) {}
-
-  getCountries(): Promise<Country[]> {
-    return Promise.resolve(countries);
+export class CountryService extends PersistentService<Country> {
+  constructor(protected override http: HttpClient) {
+    super(http, `http://localhost:8081/v1/countries`);
   }
+
 }
