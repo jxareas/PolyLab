@@ -21,6 +21,8 @@ import { MdsActionToolbarModule } from 'mds-light';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ReligionService } from './religion/service/religion.service';
+import { ProfessionService } from "./profession/service/profession.service";
+import { GenderService } from "./gender/service/gender.service";
 
 @NgModule({
   declarations: [
@@ -47,6 +49,6 @@ import { ReligionService } from './religion/service/religion.service';
     MessagesModule,
     MessageModule,
   ],
-  providers: [ReligionService],
+  providers: [ReligionService, ProfessionService, GenderService],
 })
 export class CategoriesModule {}

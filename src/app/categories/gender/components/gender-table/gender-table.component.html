@@ -38,9 +38,6 @@
       <th pSortableColumn="description">
         Description <p-sortIcon field="description"></p-sortIcon>
       </th>
-      <th pSortableColumn="status">
-        Status <p-sortIcon field="status"></p-sortIcon>
-      </th>
       <th></th>
     </tr>
   </ng-template>
@@ -56,12 +53,6 @@
       <td>
         <span class="p-column-title">Description</span>
         {{ gender.description }}
-      </td>
-      <td style="width: 14%; min-width: 10rem">
-        <span class="p-column-title">Status</span>
-        <span [class]="'product-badge status-' + colorOf(gender.status)">{{
-          labelOf(gender.status)
-        }}</span>
       </td>
       <td>
         <div class="flex">

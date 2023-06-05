@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Municipality } from "../model/municipality";
 import { PersistentService } from "mds-light";
+import { Patient } from "../model/patient";
 
 @Injectable()
-export class MunicipalityService extends PersistentService<Municipality> {
+export class PatientService extends PersistentService<Patient> {
 
   constructor(protected override http: HttpClient) {
-    super(http, `http://localhost:8086/v1/municipalities`);
+    super(http, `http://localhost:8087/v1/patients`);
   }
-
 }
