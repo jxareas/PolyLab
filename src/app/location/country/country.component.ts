@@ -94,11 +94,13 @@ export class CountryComponent {
 
   openNewCountryDialog() {
     this.country = {};
+    this.countryDialog.isEditMode = false;
     this.countryDialog.openDialog();
   }
 
   openEditCountryDialog(country: Country): void {
     this.country = country;
+    this.countryDialog.isEditMode = true;
     this.countryDialog.openDialog();
   }
 

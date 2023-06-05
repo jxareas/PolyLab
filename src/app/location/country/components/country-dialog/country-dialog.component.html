@@ -1,8 +1,8 @@
-<p-dialog [(visible)]="countryDialog" [formGroup]="countryForm" [style]="{ width: '450px' }" header="Manage Countries" [contentStyle]="{ overflow: 'visible' }" [modal]="true" class="p-fluid">
+<p-dialog [(visible)]="countryDialog" (keyup.enter)="saveOrEditCountry()" [formGroup]="countryForm" [style]="{ width: '450px' }" header="Manage Countries" [contentStyle]="{ overflow: 'visible' }" [modal]="true" class="p-fluid">
   <ng-template pTemplate="content">
     <div class="field">
       <label for="name">Description</label>
-      <input type="text" pInputText id="name" formControlName="description" [ngClass]="{ 'ng-invalid ng-dirty': submitted && countryForm.controls['description'].invalid }" />
+      <input autofocus type="text" pInputText id="name" formControlName="description" [ngClass]="{ 'ng-invalid ng-dirty': submitted && countryForm.controls['description'].invalid }" />
       <small class="p-error" *ngIf="countryForm.controls['description'].invalid && countryForm.controls['description'].touched">Description is required.</small>
     </div>
     <div class="field">
@@ -23,7 +23,7 @@
   <ng-template pTemplate="footer">
     <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text p-button-danger" (click)="cancel()"></button>
     <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text p-button-success"
-            [disabled]="countryForm.invalid || countryForm.pristine" (click)="saveCountry()">
+            [disabled]="countryForm.invalid || countryForm.pristine" (click)="saveOrEditCountry()">
     </button>
   </ng-template>
 </p-dialog>

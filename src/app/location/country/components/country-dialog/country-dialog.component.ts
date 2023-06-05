@@ -1,35 +1,72 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { LabelService } from 'mds-light';
 import { Country } from '../../model/country';
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { AddOrEditCountryForm } from "./viewmodel/add-or-edit-country-form";
-import { catchError, switchMap, throwError } from "rxjs";
-import { CountryService } from "../../service/country.service";
-import { MessageService } from "primeng/api";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { AddOrEditCountryForm } from './viewmodel/add-or-edit-country-form';
+import { catchError, switchMap, throwError } from 'rxjs';
+import { CountryService } from '../../service/country.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'jx-country-dialog',
   templateUrl: './country-dialog.component.html',
   styles: [],
 })
-export class CountryDialogComponent implements OnInit {
+export class CountryDialogComponent implements OnInit, OnChanges {
   @Input({ required: true }) country: Country;
   countryDialog = false;
+  isEditMode = false;
   statuses: any[];
   submitted = false;
   countryForm: FormGroup<AddOrEditCountryForm>;
 
-  constructor(private fb: FormBuilder,
-              private countryService: CountryService,
-              private messageService: MessageService,
-              protected labelService: LabelService) {}
+  constructor(
+    private fb: FormBuilder,
+    private countryService: CountryService,
+    private messageService: MessageService,
+    protected labelService: LabelService,
+  ) {}
 
   ngOnInit() {
     this.statuses = this.labelService.getDefaults();
     this.countryForm = new FormGroup<AddOrEditCountryForm>({
+      countryId: new FormControl<number | null>(null),
       description: new FormControl<string>('', [Validators.required]),
-      status: new FormControl<number>(1,{nonNullable: true}),
+      status: new FormControl<number>(1, { nonNullable: true }),
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['country'] && this.isEditMode) {
+      this.populateForm();
+    } else  {
+      this.countryForm.reset()
+    }
+  }
+
+  private populateForm() {
+    this.countryForm?.patchValue({
+      countryId: this.country.countryId,
+      description: this.country.description,
+      status: this.country.status,
+    });
+  }
+
+  saveOrEditCountry(): void {
+    if (this.isEditMode) {
+      this.updateCountry();
+    } else this.saveCountry();
   }
 
   saveCountry() {
@@ -42,11 +79,31 @@ export class CountryDialogComponent implements OnInit {
           catchError(error => {
             this.displayErrorMessage();
             return throwError(error);
-          })
+          }),
         )
         .subscribe(data => {
           this.countryService.setChanges(data);
           this.displaySuccessMessage(`Added ${countryData.description}`);
+          this.hideDialog();
+        });
+    }
+  }
+
+  updateCountry() {
+    if (this.countryForm.valid) {
+      const countryData = this.countryForm.value as Country;
+      // eslint-disable-next-line
+      this.countryService.update(countryData.countryId as number, countryData)
+        .pipe(
+          switchMap(() => this.countryService.findAll()),
+          catchError(error => {
+            this.displayErrorMessage();
+            return throwError(error);
+          }),
+        )
+        .subscribe(data => {
+          this.countryService.setChanges(data);
+          this.displaySuccessMessage(`Updated ${countryData.description}`);
           this.hideDialog();
         });
     }
@@ -64,7 +121,7 @@ export class CountryDialogComponent implements OnInit {
   private displaySuccessMessage(message: string): void {
     this.messageService.add({
       severity: 'success',
-      summary: 'Added Country',
+      summary: 'Success',
       detail: message,
       life: 3000,
     });
