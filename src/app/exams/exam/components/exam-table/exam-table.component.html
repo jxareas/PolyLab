@@ -71,11 +71,29 @@
         <span class="p-column-title">Calculated</span>
         {{ exam.calculated }}
       </td>
-      <td>
+      <td style="width: 14%; min-width: 10rem">
         <span class="p-column-title">Status</span>
-        {{ exam.status }}
+        <span
+          [class]="'product-badge status-' + colorOf(exam.status)"
+        >{{ labelOf(exam.status) }}</span
+        >
       </td>
-      <td></td>
+      <td>
+        <div class="flex">
+          <button
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-success mr-2"
+            (click)="editItemAction.emit(exam)"></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-warning"
+            (click)="deleteItemAction.emit(exam)"></button>
+        </div>
+      </td>
     </tr>
   </ng-template>
   <ng-template pTemplate="emptymessage">

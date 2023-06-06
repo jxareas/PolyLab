@@ -1,1 +1,50 @@
-<p>exam-dialog works!</p>
+<p-dialog [(visible)]="examDialog" (keyup.enter)="saveOrEditExam()"
+          [formGroup]="examForm"
+          [style]="{ width: '850px', overflow:'scroll' }"
+          header="Manage Exams" [contentStyle]="{ overflow: 'visible' }" [modal]="true" class="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="field">
+      <label for="description">Description</label>
+      <input autofocus type="text" pInputText id="description" formControlName="description" [ngClass]="{ 'ng-invalid ng-dirty': submitted && examForm.controls['description'].invalid }" />
+      <small class="p-error" *ngIf="examForm.controls['description'].hasError('required') && examForm.controls['description'].touched">Description is required.</small>
+      <small class="p-error" *ngIf="examForm.controls['description'].hasError('minlength') && examForm.controls['description'].touched">Minimum length is 3 characters.</small>
+      <small class="p-error" *ngIf="examForm.controls['description'].hasError('maxlength') && examForm.controls['description'].touched">Maximum length is 10 characters.</small>
+    </div>
+    <div class="field">
+      <label for="shortDescription">Short Description</label>
+      <input type="text" pInputText id="shortDescription" formControlName="shortDescription" [ngClass]="{ 'ng-invalid ng-dirty': submitted && examForm.controls['shortDescription'].invalid }" />
+      <small class="p-error" *ngIf="examForm.controls['shortDescription'].hasError('required') && examForm.controls['shortDescription'].touched">Short Description is required.</small>
+      <small class="p-error" *ngIf="examForm.controls['shortDescription'].hasError('minlength') && examForm.controls['shortDescription'].touched">Minimum length is 3 characters.</small>
+      <small class="p-error" *ngIf="examForm.controls['shortDescription'].hasError('maxlength') && examForm.controls['shortDescription'].touched">Maximum length is 10 characters.</small>
+    </div>
+    <div class="field">
+      <label for="lisCode">LIS Code</label>
+      <input type="text" pInputText id="lisCode" formControlName="lisCode" [ngClass]="{ 'ng-invalid ng-dirty': submitted && examForm.controls['lisCode'].invalid }" />
+      <small class="p-error" *ngIf="examForm.controls['lisCode'].hasError('required') && examForm.controls['lisCode'].touched">LIS Code is required.</small>
+      <small class="p-error" *ngIf="examForm.controls['lisCode'].hasError('minlength') && examForm.controls['lisCode'].touched">Minimum length is 3 characters.</small>
+      <small class="p-error" *ngIf="examForm.controls['lisCode'].hasError('maxlength') && examForm.controls['lisCode'].touched">Maximum length is 10 characters.</small>
+    </div>
+    <div class="field">
+      <label for="count">Count</label>
+      <input type="text" pInputText id="count" formControlName="count" [ngClass]="{ 'ng-invalid ng-dirty': submitted && examForm.controls['count'].invalid }" />
+      <small class="p-error" *ngIf="examForm.controls['count'].hasError('required') && examForm.controls['count'].touched">Count is required.</small>
+    </div>
+    <div class="field">
+      <label for="confidential">Confidential</label>
+      <input type="text" pInputText id="confidential" formControlName="confidential" [ngClass]="{ 'ng-invalid ng-dirty': submitted && examForm.controls['confidential'].invalid }" />
+      <small class="p-error" *ngIf="examForm.controls['confidential'].hasError('required') && examForm.controls['confidential'].touched">Confidential is required.</small>
+    </div>
+    <div class="field">
+      <label for="calculated">Calculated</label>
+      <input type="text" pInputText id="calculated" formControlName="calculated" [ngClass]="{ 'ng-invalid ng-dirty': submitted && examForm.controls['calculated'].invalid }" />
+      <small class="p-error" *ngIf="examForm.controls['calculated'].hasError('required') && examForm.controls['calculated'].touched">Calculated is required.</small>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text p-button-danger" (click)="hideDialog()"></button>
+    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text p-button-success"
+            [disabled]="examForm.invalid || examForm.pristine" (click)="saveOrEditExam()">
+    </button>
+  </ng-template>
+</p-dialog>

@@ -8,7 +8,7 @@ import { NormalValuesTableComponent } from './normal-values/components/normal-va
 import { NormalValuesDialogComponent } from './normal-values/components/normal-values-dialog/normal-values-dialog.component';
 import { ExamDialogComponent } from './exam/components/exam-dialog/exam-dialog.component';
 import { ExamTableComponent } from './exam/components/exam-table/exam-table.component';
-import { MdsActionToolbarModule } from 'mds-light';
+import { MdsActionToolbarModule, MdsDeleteSingleModule } from "mds-light";
 import { ToastModule } from 'primeng/toast';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
@@ -19,6 +19,9 @@ import { MessageModule } from 'primeng/message';
 import { ExamService } from './exam/service/exam.service';
 import { NormalValuesService } from './normal-values/service/normal-values.service';
 import { ExamProfileService } from './exam-profiles/service/exam-profile.service';
+import { DropdownModule } from "primeng/dropdown";
+import { ReactiveFormsModule } from "@angular/forms";
+import { DialogModule } from "primeng/dialog";
 
 @NgModule({
   declarations: [
@@ -34,13 +37,17 @@ import { ExamProfileService } from './exam-profiles/service/exam-profile.service
     CommonModule,
     ExamsRoutingModule,
     MdsActionToolbarModule,
+    MdsDeleteSingleModule,
     ToastModule,
     TableModule,
     ButtonModule,
     InputTextModule,
     RippleModule,
     SharedModule,
+    DropdownModule,
     MessageModule,
+    ReactiveFormsModule,
+    DialogModule
   ],
   providers: [ExamService, ExamProfileService, NormalValuesService],
 })

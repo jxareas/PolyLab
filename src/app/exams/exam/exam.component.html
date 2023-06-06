@@ -2,8 +2,17 @@
   <div class="col-12">
     <div class="card px-6 py-6">
       <p-toast></p-toast>
-      <mds-action-toolbar [deleteDisabled]="true"/>
-      <jx-exam-table />
+      <mds-action-toolbar
+        (newAction)="openNewExamDialog()"
+        [deleteDisabled]="true"/>
+      <jx-exam-table #examTable
+                     (editItemAction)="openEditExamDialog($event)"
+                     (deleteItemAction)="openDeleteExamDialog($event)" />
+      <jx-exam-dialog #examDialog [exam]="exam"/>
+      <mds-delete-single
+        [itemName]="exam.description || 'this exam'"
+        (confirmDeleteAction)="confirmDelete();"
+        #deleteExamDialog />
     </div>
   </div>
 </div>
