@@ -2,8 +2,17 @@
   <div class="col-12">
     <div class="card px-6 py-6">
       <p-toast></p-toast>
-      <mds-action-toolbar [deleteDisabled]="true"/>
-      <jx-personal-table />
+      <mds-action-toolbar
+        (newAction)="openNewDoctorDialog()"
+        [deleteDisabled]="true"/>
+      <jx-personal-table #doctorTable
+        (editItemAction)="openEditDoctorDialog($event)"
+        (deleteItemAction)="openDeleteDoctorDialog($event)" />
+      <jx-personal-dialog [doctor]="doctor" #doctorDialog />
+      <mds-delete-single
+        [itemName]="doctor.lastName || 'this doctor'"
+        (confirmDeleteAction)="confirmDelete()"
+        #deleteDoctorDialog />
     </div>
   </div>
 </div>

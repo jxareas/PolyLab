@@ -5,7 +5,7 @@ import { PersonalComponent } from './personal/personal.component';
 import { PatientComponent } from './patient/patient.component';
 import { PersonalTableComponent } from './personal/components/personal-table/personal-table.component';
 import { PersonalDialogComponent } from './personal/components/personal-dialog/personal-dialog.component';
-import { MdsActionToolbarModule } from 'mds-light';
+import { MdsActionToolbarModule, MdsDeleteSingleModule } from 'mds-light';
 import { ToastModule } from 'primeng/toast';
 import { PatientTableComponent } from './patient/components/patient-table/patient-table.component';
 import { PatientDialogComponent } from './patient/components/patient-dialog/patient-dialog.component';
@@ -17,6 +17,16 @@ import { SharedModule } from 'primeng/api';
 import { TableModule } from 'primeng/table';
 import { PatientService } from './patient/service/patient.service';
 import { DoctorService } from './personal/service/doctor.service';
+import { DialogModule } from 'primeng/dialog';
+import { DropdownModule } from 'primeng/dropdown';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CountryService } from '../location/country/service/country.service';
+import { DepartmentService } from '../location/department/service/department.service';
+import { MunicipalityService } from '../location/municipality/service/municipality.service';
+import { ProfessionService } from '../categories/profession/service/profession.service';
+import { CalendarModule } from "primeng/calendar";
+import { ReligionService } from "../categories/religion/service/religion.service";
+import { InputTextareaModule } from "primeng/inputtextarea";
 
 @NgModule({
   declarations: [
@@ -31,6 +41,8 @@ import { DoctorService } from './personal/service/doctor.service';
     CommonModule,
     RecordsRoutingModule,
     MdsActionToolbarModule,
+    MdsDeleteSingleModule,
+    DialogModule,
     ToastModule,
     MessageModule,
     ButtonModule,
@@ -38,7 +50,19 @@ import { DoctorService } from './personal/service/doctor.service';
     RippleModule,
     SharedModule,
     TableModule,
+    DropdownModule,
+    ReactiveFormsModule,
+    CalendarModule,
+    InputTextareaModule
   ],
-  providers: [PatientService, DoctorService],
+  providers: [
+    PatientService,
+    DoctorService,
+    CountryService,
+    DepartmentService,
+    MunicipalityService,
+    ProfessionService,
+    ReligionService,
+  ],
 })
 export class RecordsModule {}

@@ -1,1 +1,124 @@
-<p>patient-dialog works!</p>
+<p-dialog [(visible)]="patientDialog" [formGroup]="patientForm"
+          [style]="{ width: '850px', overflow:'scroll' }"
+          header="Manage Patient" [contentStyle]="{ overflow: 'visible' }" [modal]="true" class="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="field-group">
+      <div class="field">
+        <label for="firstName">First Name</label>
+        <input type="text" pInputText id="firstName" formControlName="firstName" [ngClass]="{ 'ng-invalid ng-dirty': submitted && patientForm.get('firstName')?.invalid }" />
+        <small class="p-error" *ngIf="patientForm.get('firstName')?.hasError('required') && patientForm.get('firstName')?.touched">First Name is required.</small>
+      </div>
+      <div class="field">
+        <label for="secondName">Second Name</label>
+        <input type="text" pInputText id="secondName" formControlName="secondName" [ngClass]="{ 'ng-invalid ng-dirty': submitted && patientForm.get('secondName')?.invalid }" />
+        <small class="p-error" *ngIf="patientForm.get('secondName')?.hasError('required') && patientForm.get('secondName')?.touched">Second Name is required.</small>
+      </div>
+      <div class="field">
+        <label for="firstSurname">First Surname</label>
+        <input type="text" pInputText id="firstSurname" formControlName="firstSurname" [ngClass]="{ 'ng-invalid ng-dirty': submitted && patientForm.get('firstSurname')?.invalid }" />
+        <small class="p-error" *ngIf="patientForm.get('firstSurname')?.hasError('required') && patientForm.get('firstSurname')?.touched">First Surname is required.</small>
+      </div>
+      <div class="field">
+        <label for="secondSurname">Second Surname</label>
+        <input type="text" pInputText id="secondSurname" formControlName="secondSurname" [ngClass]="{ 'ng-invalid ng-dirty': submitted && patientForm.get('secondSurname')?.invalid }" />
+        <small class="p-error" *ngIf="patientForm.get('secondSurname')?.hasError('required') && patientForm.get('secondSurname')?.touched">Second Surname is required.</small>
+      </div>
+    </div>
+<!--    TODO : Dropdown -->
+    <div class="field">
+      <label for="countryBornInId">Country Born In</label>
+      <p-dropdown id="countryBornInId" [options]="countries" placeholder="Select a country" formControlName="countryBornInId"></p-dropdown>
+    </div>
+
+    <div class="field">
+      <label for="departmentBornInId">Department Born In</label>
+      <p-dropdown id="departmentBornInId" [options]="departments" placeholder="Select a department" formControlName="departmentBornInId"></p-dropdown>
+    </div>
+
+    <div class="field">
+      <label for="municipalityBornInId">Municipality Born In</label>
+      <p-dropdown id="municipalityBornInId" [options]="municipalities" placeholder="Select a municipality" formControlName="municipalityBornInId"></p-dropdown>
+    </div>
+
+    <div class="field">
+      <label for="countryResidenceId">Country Residence</label>
+      <p-dropdown id="countryResidenceId" [options]="countries" placeholder="Select a country" formControlName="countryResidenceId"></p-dropdown>
+    </div>
+
+    <div class="field">
+      <label for="departmentResidenceId">Department Residence</label>
+      <p-dropdown id="departmentResidenceId" [options]="departments" placeholder="Select a department" formControlName="departmentResidenceId"></p-dropdown>
+    </div>
+
+    <div class="field">
+      <label for="municipalityResidenceId">Municipality Residence</label>
+      <p-dropdown id="municipalityResidenceId" [options]="municipalities" placeholder="Select a municipality" formControlName="municipalityResidenceId"></p-dropdown>
+    </div>
+
+    <div class="field">
+      <label for="professionId">Profession</label>
+      <p-dropdown id="professionId" [options]="professions" placeholder="Select a profession" formControlName="professionId"></p-dropdown>
+    </div>
+
+    <div class="field">
+      <label for="religionId">Religion</label>
+      <p-dropdown id="religionId" [options]="religions" placeholder="Select a religion" formControlName="religionId"></p-dropdown>
+    </div>
+
+    <!--    TODO : Simple Fields-->
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" pInputText id="email" formControlName="email" [ngClass]="{ 'ng-invalid ng-dirty': submitted && patientForm.get('email')?.invalid }" />
+      <small class="p-error" *ngIf="patientForm.get('email')?.hasError('required') && patientForm.get('email')?.touched">Email is required.</small>
+      <small class="p-error" *ngIf="patientForm.get('email')?.hasError('email') && patientForm.get('email')?.touched">Please enter a valid email address.</small>
+    </div>
+
+    <div class="field">
+      <label for="identificationNumber">Identification Number</label>
+      <input type="text" pInputText id="identificationNumber" formControlName="identificationNumber" [ngClass]="{ 'ng-invalid ng-dirty': submitted && patientForm.get('identificationNumber')?.invalid }" />
+      <small class="p-error" *ngIf="patientForm.get('identificationNumber')?.hasError('required') && patientForm.get('identificationNumber')?.touched">Identification Number is required.</small>
+    </div>
+
+    <div class="field">
+      <label for="fileNumber">File Number</label>
+      <input type="number" pInputText id="fileNumber" formControlName="fileNumber" [ngClass]="{ 'ng-invalid ng-dirty': submitted && patientForm.get('fileNumber')?.invalid }" />
+      <small class="p-error" *ngIf="patientForm.get('fileNumber')?.hasError('required') && patientForm.get('fileNumber')?.touched">File Number is required.</small>
+    </div>
+
+    <div class="field">
+      <label for="inssNumber">INSS Number</label>
+      <input type="text" pInputText id="inssNumber" formControlName="inssNumber" [ngClass]="{ 'ng-invalid ng-dirty': submitted && patientForm.get('inssNumber')?.invalid }" />
+      <small class="p-error" *ngIf="patientForm.get('inssNumber')?.hasError('required') && patientForm.get('inssNumber')?.touched">INSS Number is required.</small>
+    </div>
+
+    <div class="field">
+      <label for="homePhone">Home Phone</label>
+      <input type="tel" pInputText id="homePhone" formControlName="homePhone" [ngClass]="{ 'ng-invalid ng-dirty': submitted && patientForm.get('homePhone')?.invalid }" />
+      <small class="p-error" *ngIf="patientForm.get('homePhone')?.hasError('required') && patientForm.get('homePhone')?.touched">Home Phone is required.</small>
+    </div>
+
+    <div class="field">
+      <label for="mobilePhone">Mobile Phone</label>
+      <input type="tel" pInputText id="mobilePhone" formControlName="mobilePhone" [ngClass]="{ 'ng-invalid ng-dirty': submitted && patientForm.get('mobilePhone')?.invalid }" />
+      <small class="p-error" *ngIf="patientForm.get('mobilePhone')?.hasError('required') && patientForm.get('mobilePhone')?.touched">Mobile Phone is required.</small>
+    </div>
+
+    <div class="field">
+      <label for="dateOfBirth">Date of Birth</label>
+      <p-calendar id="dateOfBirth" formControlName="dateOfBirth" [ngClass]="{ 'ng-invalid ng-dirty': submitted && patientForm.get('dateOfBirth')?.invalid }"></p-calendar>
+      <small class="p-error" *ngIf="patientForm.get('dateOfBirth')?.hasError('required') && patientForm.get('dateOfBirth')?.touched">Date of Birth is required.</small>
+    </div>
+
+    <div class="field">
+      <label for="homeAddress">Home Address</label>
+      <textarea pInputTextarea id="homeAddress" formControlName="homeAddress" [ngClass]="{ 'ng-invalid ng-dirty': submitted && patientForm.get('homeAddress')?.invalid }"></textarea>
+      <small class="p-error" *ngIf="patientForm.get('homeAddress')?.hasError('required') && patientForm.get('homeAddress')?.touched">Home Address is required.</small>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text p-button-danger" (click)="hideDialog()"></button>
+    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text p-button-success"
+            [disabled]="patientForm.invalid || patientForm.pristine" (click)="saveOrEditPatient()"></button>
+  </ng-template>
+</p-dialog>

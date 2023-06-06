@@ -55,12 +55,6 @@ export class GenderDialogComponent implements OnInit, OnChanges {
     });
   }
 
-  saveOrEditCountry(): void {
-    if (this.isEditMode) {
-      this.updateGender();
-    } else this.saveGender();
-  }
-
   saveGender() {
     if (this.genderForm.valid) {
       const countryData = this.genderForm.value as Gender;

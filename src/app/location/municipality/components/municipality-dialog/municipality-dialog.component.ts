@@ -99,7 +99,8 @@ export class MunicipalityDialogComponent implements OnInit, OnChanges {
     if (this.municipalityForm.valid) {
       const municipalityData = this.municipalityForm.value as Municipality;
       this.municipalityService
-        .update(municipalityData.municipalityId , municipalityData)
+        // eslint-disable-next-line
+        .update(municipalityData.municipalityId as number, municipalityData)
         .pipe(
           switchMap(() => this.municipalityService.findAll()),
           catchError((error) => {
