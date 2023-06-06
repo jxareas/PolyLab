@@ -10,8 +10,8 @@
                            (deleteItemAction)="openDeleteDepartmentDialog($event)" />
       <jx-department-dialog #departmentDialog [department]="department" />
       <mds-delete-single
-        [itemName]="department.description || 'this country'"
-        (confirmDeleteAction)="confirmDelete();"
+        [itemName]="department.description || 'this department'"
+        (confirmDeleteAction)="confirmDelete()"
         #deleteDepartmentDialog />
 
     </div>

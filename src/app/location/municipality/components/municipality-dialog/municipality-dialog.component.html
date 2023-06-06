@@ -1,1 +1,23 @@
-<p>municipality-dialog works!</p>
+<p-dialog [(visible)]="municipalityDialog" (keyup.enter)="saveOrEditMunicipality()" [formGroup]="municipalityForm" [style]="{ width: '450px' }" header="Manage Municipalities" [contentStyle]="{ overflow: 'visible' }" [modal]="true" class="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="field">
+      <label for="departmentId">Department</label>
+      <p-dropdown [options]="departments" id="departmentId" placeholder="Select a department" formControlName="departmentId" [ngClass]="{ 'ng-invalid ng-dirty': submitted && municipalityForm.controls['departmentId'].invalid }"></p-dropdown>
+      <small class="p-error" *ngIf="municipalityForm.controls['departmentId'].hasError('required') && municipalityForm.controls['departmentId'].touched">Department is required.</small>
+    </div>
+    <div class="field">
+      <label for="description">Description</label>
+      <input autofocus type="text" pInputText id="description" formControlName="description" [ngClass]="{ 'ng-invalid ng-dirty': submitted && municipalityForm.controls['description'].invalid }" />
+      <small class="p-error" *ngIf="municipalityForm.controls['description'].hasError('required') && municipalityForm.controls['description'].touched">Description is required.</small>
+      <small class="p-error" *ngIf="municipalityForm.controls['description'].hasError('minlength') && municipalityForm.controls['description'].touched">Minimum length is 3 characters.</small>
+      <small class="p-error" *ngIf="municipalityForm.controls['description'].hasError('maxlength') && municipalityForm.controls['description'].touched">Maximum length is 10 characters.</small>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text p-button-danger" (click)="hideDialog()"></button>
+    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text p-button-success"
+            [disabled]="municipalityForm.invalid || municipalityForm.pristine" (click)="saveOrEditMunicipality()">
+    </button>
+  </ng-template>
+</p-dialog>

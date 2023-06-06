@@ -38,12 +38,17 @@ export class DepartmentDialogComponent implements OnInit, OnChanges {
       description: new FormControl<string>('', [Validators.required, Validators.minLength(5), Validators.maxLength(30)]),
       status : new FormControl<number>(1, {nonNullable: true})
     });
-    this.countryService.findAll().subscribe((countries) => {
-      this.countries = countries.map((country) => ({
-        label: country.description,
-        value: country.countryId,
-      }));
-    });
+    this.countryService.findAll().subscribe(
+      (countries) => {
+        this.countries = countries.map((country) => ({
+          label: country.description,
+          value: country.countryId
+        }));
+      },
+      () => {
+        this.displayErrorMessage('Unable to fetch country data.');
+      }
+    );
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -111,12 +116,13 @@ export class DepartmentDialogComponent implements OnInit, OnChanges {
     }
   }
 
-  private displayErrorMessage(): void {
+  private displayErrorMessage(message?: string): void {
+    const errorMessage = message || 'An error occurred while saving the department.';
     this.messageService.add({
       severity: 'error',
       summary: 'Error',
-      detail: 'An error occurred while saving the department.',
-      life: 3000,
+      detail: errorMessage,
+      life: 5_000,
     });
   }
 
