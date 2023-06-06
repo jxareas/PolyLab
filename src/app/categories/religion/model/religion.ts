@@ -1,4 +1,4 @@
 export interface Religion {
-  religionId?: string;
+  religionId?: number;
   description?: string;
 }

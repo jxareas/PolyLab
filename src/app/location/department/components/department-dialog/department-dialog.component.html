@@ -1,1 +1,23 @@
-<p>department-dialog works!</p>
+<p-dialog [(visible)]="departmentDialog" (keyup.enter)="saveOrEditDepartment()" [formGroup]="departmentForm" [style]="{ width: '450px' }" header="Manage Departments" [contentStyle]="{ overflow: 'visible' }" [modal]="true" class="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="field">
+      <label for="countryId">Country</label>
+      <p-dropdown [options]="countries" id="countryId" formControlName="countryId" [ngClass]="{ 'ng-invalid ng-dirty': submitted && departmentForm.controls['countryId'].invalid }"></p-dropdown>
+      <small class="p-error" *ngIf="departmentForm.controls['countryId'].hasError('required') && departmentForm.controls['countryId'].touched">Country is required.</small>
+    </div>
+    <div class="field">
+      <label for="description">Description</label>
+      <input autofocus type="text" pInputText id="description" formControlName="description" [ngClass]="{ 'ng-invalid ng-dirty': submitted && departmentForm.controls['description'].invalid }" />
+      <small class="p-error" *ngIf="departmentForm.controls['description'].hasError('required') && departmentForm.controls['description'].touched">Description is required.</small>
+      <small class="p-error" *ngIf="departmentForm.controls['description'].hasError('minlength') && departmentForm.controls['description'].touched">Minimum length is 3 characters.</small>
+      <small class="p-error" *ngIf="departmentForm.controls['description'].hasError('maxlength') && departmentForm.controls['description'].touched">Maximum length is 10 characters.</small>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text p-button-danger" (click)="hideDialog()"></button>
+    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text p-button-success"
+            [disabled]="departmentForm.invalid || departmentForm.pristine" (click)="saveOrEditDepartment()">
+    </button>
+  </ng-template>
+</p-dialog>

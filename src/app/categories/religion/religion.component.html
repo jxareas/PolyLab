@@ -2,8 +2,18 @@
   <div class="col-12">
     <div class="card px-6 py-6">
       <p-toast></p-toast>
-      <mds-action-toolbar [deleteDisabled]="true"/>
-      <jx-religion-table />
+      <mds-action-toolbar
+        (newAction)="openNewReligionDialog()"
+        [deleteDisabled]="true"/>
+      <jx-religion-table
+        (editItemAction)="openEditReligionDialog($event)"
+        (deleteItemAction)="openDeleteReligionDialog($event)"
+      />
+      <jx-religion-dialog [religion]="religion" #religionDialog/>
+      <mds-delete-single
+        [itemName]="religion.description || 'this country'"
+        (confirmDeleteAction)="confirmDelete();"
+        #deleteReligionDialog />
     </div>
   </div>
 </div>

@@ -2,8 +2,18 @@
   <div class="col-12">
     <div class="card px-6 py-6">
       <p-toast></p-toast>
-      <mds-action-toolbar [deleteDisabled]="true"/>
-      <jx-department-table />
+      <mds-action-toolbar
+        (newAction)="openNewDepartmentDialog()"
+        [deleteDisabled]="true"/>
+      <jx-department-table #departmentTable
+                           (editItemAction)="openEditDepartmentDialog($event)"
+                           (deleteItemAction)="openDeleteDepartmentDialog($event)" />
+      <jx-department-dialog #departmentDialog [department]="department" />
+      <mds-delete-single
+        [itemName]="department.description || 'this country'"
+        (confirmDeleteAction)="confirmDelete();"
+        #deleteDepartmentDialog />
+
     </div>
   </div>
 </div>

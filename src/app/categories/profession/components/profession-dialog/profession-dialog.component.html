@@ -1,1 +1,31 @@
-<p>profession-dialog works!</p>
+<p-dialog [(visible)]="professionDialog" (keyup.enter)="saveOrEditProfession()" [formGroup]="professionForm" [style]="{ width: '450px' }" header="Manage Professions" [contentStyle]="{ overflow: 'visible' }" [modal]="true" class="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="field">
+      <label for="description">Description</label>
+      <input autofocus type="text" pInputText id="description" formControlName="description" [ngClass]="{ 'ng-invalid ng-dirty': submitted && professionForm.controls['description'].invalid }" />
+      <small class="p-error" *ngIf="professionForm.controls['description'].hasError('required') && professionForm.controls['description'].touched">Description is required.</small>
+      <small class="p-error" *ngIf="professionForm.controls['description'].hasError('minlength') && professionForm.controls['description'].touched">Minimum length is 3 characters.</small>
+      <small class="p-error" *ngIf="professionForm.controls['description'].hasError('maxlength') && professionForm.controls['description'].touched">Maximum length is 50 characters.</small>
+    </div>
+    <div class="field">
+      <label for="status">Status</label>
+      <p-dropdown id="status" formControlName="status" [options]="statuses" placeholder="Select">
+        <ng-template pTemplate="selectedItem">
+          <span [class]="'product-badge status-' + labelService.getColor(professionForm.controls['status'].value)">
+            {{ labelService.getTag(professionForm.controls['status'].value) }}
+          </span>
+        </ng-template>
+        <ng-template let-option pTemplate="item">
+          <span [class]="'product-badge status-' + option.value">{{ option.label }}</span>
+        </ng-template>
+      </p-dropdown>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text p-button-danger" (click)="hideDialog()"></button>
+    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text p-button-success"
+            [disabled]="professionForm.invalid || professionForm.pristine" (click)="saveOrEditProfession()">
+    </button>
+  </ng-template>
+</p-dialog>

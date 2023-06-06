@@ -1,5 +1,5 @@
 export interface Profession {
-  professionId?: string;
+  professionId?: number;
   description?: string;
-  status?: string;
+  status?: number;
 }

@@ -1,1 +1,18 @@
-<p>religion-dialog works!</p>
+<p-dialog [(visible)]="religionDialog" (keyup.enter)="saveOrEditReligion()" [formGroup]="religionForm" [style]="{ width: '450px' }" header="Manage Religions" [contentStyle]="{ overflow: 'visible' }" [modal]="true" class="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="field">
+      <label for="description">Description</label>
+      <input autofocus type="text" pInputText id="description" formControlName="description" [ngClass]="{ 'ng-invalid ng-dirty': submitted && religionForm.controls['description'].invalid }" />
+      <small class="p-error" *ngIf="religionForm.controls['description'].hasError('required') && religionForm.controls['description'].touched">Description is required.</small>
+      <small class="p-error" *ngIf="religionForm.controls['description'].hasError('minlength') && religionForm.controls['description'].touched">Minimum length is 3 characters.</small>
+      <small class="p-error" *ngIf="religionForm.controls['description'].hasError('maxlength') && religionForm.controls['description'].touched">Maximum length is 10 characters.</small>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text p-button-danger" (click)="hideDialog()"></button>
+    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text p-button-success"
+            [disabled]="religionForm.invalid || religionForm.pristine" (click)="saveOrEditReligion()">
+    </button>
+  </ng-template>
+</p-dialog>

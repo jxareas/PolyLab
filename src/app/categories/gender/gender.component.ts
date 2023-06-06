@@ -1,7 +1,6 @@
 import { Component, ViewChild } from "@angular/core";
 import { Gender } from "./model/gender";
 import { GenderDialogComponent } from "./components/gender-dialog/gender-dialog.component";
-import { Country } from "../../location/country/model/country";
 import { MdsDeleteSingleComponent } from "mds-light";
 import { catchError, switchMap, throwError } from "rxjs";
 import { MessageService } from "primeng/api";
@@ -38,8 +37,8 @@ export class GenderComponent {
     this.genderDialog.openDialog();
   }
 
-  openDeleteGenreDialog(country: Country): void {
-    this.gender = country;
+  openDeleteGenreDialog(gender: Gender): void {
+    this.gender = gender;
     this.deleteDialog.openDialog();
   }
 
