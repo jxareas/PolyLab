@@ -22,6 +22,10 @@ import { ExamProfileService } from './exam-profiles/service/exam-profile.service
 import { DropdownModule } from "primeng/dropdown";
 import { ReactiveFormsModule } from "@angular/forms";
 import { DialogModule } from "primeng/dialog";
+import { GenderService } from "../categories/gender/service/gender.service";
+import { InputNumberModule } from "primeng/inputnumber";
+import { ProfileDialogComponent } from './exam-profiles/components/profile-dialog/profile-dialog.component';
+import { ProfileTableComponent } from './exam-profiles/components/profile-table/profile-table.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,8 @@ import { DialogModule } from "primeng/dialog";
     NormalValuesDialogComponent,
     ExamDialogComponent,
     ExamTableComponent,
+    ProfileDialogComponent,
+    ProfileTableComponent,
   ],
   imports: [
     CommonModule,
@@ -42,13 +48,14 @@ import { DialogModule } from "primeng/dialog";
     TableModule,
     ButtonModule,
     InputTextModule,
+    InputNumberModule,
     RippleModule,
     SharedModule,
     DropdownModule,
     MessageModule,
     ReactiveFormsModule,
-    DialogModule
+    DialogModule,
   ],
-  providers: [ExamService, ExamProfileService, NormalValuesService],
+  providers: [ExamService, ExamProfileService, NormalValuesService, GenderService],
 })
 export class ExamsModule {}

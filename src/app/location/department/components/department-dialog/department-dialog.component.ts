@@ -40,7 +40,7 @@ export class DepartmentDialogComponent implements OnInit, OnChanges {
     });
     this.countryService.findAll().subscribe(
       (countries) => {
-        this.countries = countries.map((country) => ({
+        this.countries = countries.map( (country) => ({
           label: country.description,
           value: country.countryId
         }));

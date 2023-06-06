@@ -1,1 +1,31 @@
-<p>normal-values-dialog works!</p>
+<p-dialog [(visible)]="normalValuesDialog" (keyup.enter)="saveOrEditNormalValues()" [formGroup]="normalValuesForm" [style]="{ width: '450px' }" header="Manage Normal Values" [contentStyle]="{ overflow: 'visible' }" [modal]="true" class="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="field">
+      <label for="examId">Exam</label>
+      <p-dropdown [options]="exams" id="examId" placeholder="Select an exam" formControlName="examId" [ngClass]="{ 'ng-invalid ng-dirty': submitted && normalValuesForm.controls['examId'].invalid }"></p-dropdown>
+      <small class="p-error" *ngIf="normalValuesForm.controls['examId'].hasError('required') && normalValuesForm.controls['examId'].touched">Exam is required.</small>
+    </div>
+    <div class="field">
+      <label for="genderId">Gender</label>
+      <p-dropdown [options]="genders" id="genderId" placeholder="Select a gender" formControlName="genderId" [ngClass]="{ 'ng-invalid ng-dirty': submitted && normalValuesForm.controls['genderId'].invalid }"></p-dropdown>
+      <small class="p-error" *ngIf="normalValuesForm.controls['genderId'].hasError('required') && normalValuesForm.controls['genderId'].touched">Gender is required.</small>
+    </div>
+    <div class="field">
+      <label for="highRange">High Range</label>
+      <p-inputNumber id="highRange" formControlName="highRange" [ngClass]="{ 'ng-invalid ng-dirty': submitted && normalValuesForm.controls['highRange'].invalid }" />
+      <small class="p-error" *ngIf="normalValuesForm.controls['highRange'].hasError('required') && normalValuesForm.controls['highRange'].touched">High Range is required.</small>
+    </div>
+    <div class="field">
+      <label for="lowRange">Low Range</label>
+      <p-inputNumber id="lowRange"  formControlName="lowRange" [ngClass]="{ 'ng-invalid ng-dirty': submitted && normalValuesForm.controls['lowRange'].invalid }" />
+      <small class="p-error" *ngIf="normalValuesForm.controls['lowRange'].hasError('required') && normalValuesForm.controls['lowRange'].touched">Low Range is required.</small>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text p-button-danger" (click)="hideDialog()"></button>
+    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text p-button-success"
+            [disabled]="normalValuesForm.invalid || normalValuesForm.pristine" (click)="saveOrEditNormalValues()">
+    </button>
+  </ng-template>
+</p-dialog>

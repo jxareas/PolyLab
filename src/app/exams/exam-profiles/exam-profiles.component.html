@@ -1,1 +1,18 @@
-<p>exam-profiles works!</p>
+<div class="grid">
+  <div class="col-12">
+    <div class="card px-6 py-6">
+      <p-toast></p-toast>
+      <mds-action-toolbar (newAction)="openNewProfileDialog()"
+                          [deleteDisabled]="true" />
+      <jx-profile-table #profileTable
+                       (editItemAction)="openEditProfileDialog($event)"
+                       (deleteItemAction)="openDeleteProfileDialog($event)"
+      />
+      <jx-profile-dialog #profileDialog [profile]="profile"/>
+      <mds-delete-single
+        [itemName]="profile.description || 'this profile'"
+        (confirmDeleteAction)="confirmDelete();"
+        #deleteProfileDialog />
+    </div>
+  </div>
+</div>

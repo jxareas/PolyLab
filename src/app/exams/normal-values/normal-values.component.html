@@ -2,8 +2,16 @@
   <div class="col-12">
     <div class="card px-6 py-6">
       <p-toast></p-toast>
-      <mds-action-toolbar [deleteDisabled]="true"/>
-      <jx-normal-values-table />
+      <mds-action-toolbar (newAction)="openNewNormalValuesDialog()"
+                          [deleteDisabled]="true" />
+      <jx-normal-values-table #normalValuesTable
+                       (editItemAction)="openEditNormalValuesDialog($event)"
+                       (deleteItemAction)="openDeleteNormalValuesDialog($event)"
+      />
+      <jx-normal-values-dialog #normalValuesDialog [normalValues]="normalValues"/>
+      <mds-delete-single #deleteNormalValuesDialog
+        [itemName]="'this normal value'"
+        (confirmDeleteAction)="confirmDelete();"/>
     </div>
   </div>
 </div>

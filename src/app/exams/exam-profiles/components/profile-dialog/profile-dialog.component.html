@@ -1,0 +1,38 @@
+<p-dialog [(visible)]="profileDialog" (keyup.enter)="saveOrEditProfile()" [formGroup]="profileForm" [style]="{ width: '450px' }"
+          header="Manage Profiles" [contentStyle]="{ overflow: 'visible' }" [modal]="true" class="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="field">
+      <label for="description">Description</label>
+      <input autofocus type="text" pInputText id="description" formControlName="description"
+             [ngClass]="{ 'ng-invalid ng-dirty': submitted && profileForm.controls['description'].invalid }" />
+      <small class="p-error" *ngIf="profileForm.controls['description'].hasError('required') && profileForm.controls['description'].touched">
+        Description is required.
+      </small>
+      <small class="p-error" *ngIf="profileForm.controls['description'].hasError('minlength') && profileForm.controls['description'].touched">
+        Minimum length is 4 characters.
+      </small>
+      <small class="p-error" *ngIf="profileForm.controls['description'].hasError('maxlength') && profileForm.controls['description'].touched">
+        Maximum length is 50 characters.
+      </small>
+    </div>
+    <div class="field">
+      <label for="status">Status</label>
+      <p-dropdown id="status" formControlName="status" [options]="statuses" placeholder="Select">
+        <ng-template pTemplate="selectedItem">
+          <span [class]="'product-badge status-' + labelService.getColor(profileForm.controls['status'].value)">
+            {{ labelService.getTag(profileForm.controls['status'].value) }}
+          </span>
+        </ng-template>
+        <ng-template let-option pTemplate="item">
+          <span [class]="'product-badge status-' + option.value">{{ option.label }}</span>
+        </ng-template>
+      </p-dropdown>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text p-button-danger" (click)="hideDialog()"></button>
+    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text p-button-success"
+            [disabled]="profileForm.invalid || profileForm.pristine" (click)="saveOrEditProfile()"></button>
+  </ng-template>
+</p-dialog>
