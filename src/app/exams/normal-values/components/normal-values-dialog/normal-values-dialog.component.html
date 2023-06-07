@@ -1,4 +1,6 @@
-<p-dialog [(visible)]="normalValuesDialog" (keyup.enter)="saveOrEditNormalValues()" [formGroup]="normalValuesForm" [style]="{ width: '450px' }" header="Manage Normal Values" [contentStyle]="{ overflow: 'visible' }" [modal]="true" class="p-fluid">
+<p-dialog [(visible)]="normalValuesDialog" (keyup.enter)="saveOrEditNormalValues()"
+          [formGroup]="normalValuesForm" [style]="{ width: '450px' }"
+          header="Manage Normal Values" [contentStyle]="{ overflow: 'visible' }" [modal]="true" class="p-fluid">
   <ng-template pTemplate="content">
     <div class="field">
       <label for="examId">Exam</label>
@@ -14,6 +16,7 @@
       <label for="highRange">High Range</label>
       <p-inputNumber id="highRange" formControlName="highRange" [ngClass]="{ 'ng-invalid ng-dirty': submitted && normalValuesForm.controls['highRange'].invalid }" />
       <small class="p-error" *ngIf="normalValuesForm.controls['highRange'].hasError('required') && normalValuesForm.controls['highRange'].touched">High Range is required.</small>
+      <small class="p-error" *ngIf="normalValuesForm.hasError('highRangeLessThanOrEqualLowRange') && normalValuesForm.controls['highRange'].touched">High Range must be greater than Low Range.</small>
     </div>
     <div class="field">
       <label for="lowRange">Low Range</label>
